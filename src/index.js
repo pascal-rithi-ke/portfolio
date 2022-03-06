@@ -12,7 +12,7 @@ import './style/App.css';
 import ScrollBar from './component/ScrollBar';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/portfolio">
     <ScrollBar/>
     <CustomCursor/>
     <NavBar/>

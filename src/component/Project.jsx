@@ -3,7 +3,7 @@ import Contact from "./Contact";
 
 function Project(){
     return(
-    <div className="light">
+    <div className="project light">
         <h2>My Projects</h2>
         <div className="wave"></div>
         <ul className="cards">

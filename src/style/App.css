@@ -221,8 +221,6 @@ html{
     font-size: 25px;
     background-color: black;
     color: white;
-    overflow: scroll;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -262,6 +260,9 @@ h1{
   }
 
 @media only screen and (max-width: 600px) {
+  .project h2{
+  margin-top: 50%;
+  }
   .presentation h2{
     text-align: center;
     margin-top: 30%;
@@ -276,6 +277,10 @@ h1{
     .cursor { 
         display: none;
     }
+}
+
+.project h2{
+  text-align: center;
 }
 
 /*Navigation Bar*/

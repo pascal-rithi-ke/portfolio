@@ -9,14 +9,16 @@ import NavBar from './component/NavBar';
 import CustomCursor from "./component/CustomCursor";
 
 import './style/App.css';
+import ScrollBar from './component/ScrollBar';
 
 ReactDOM.render(
   <BrowserRouter>
+    <ScrollBar/>
     <CustomCursor/>
     <NavBar/>
   <Routes>
-    <Route path="/" element={<App/>}></Route>
-    <Route path="/project" element={<Project/>}></Route>
+    <Route path="/portfolio" element={<App/>}></Route>
+    <Route path="/portfolio/project" element={<Project/>}></Route>
   </Routes>
 </BrowserRouter>,
   document.getElementById('root')

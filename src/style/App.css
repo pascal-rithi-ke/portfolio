@@ -2,8 +2,16 @@
 
 * {
     cursor: none;
+    scroll-behavior: smooth;
     box-sizing: border-box;
     text-align: left;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative;
 }
 
 .experience{

@@ -39,6 +39,22 @@ export const data = {
                 type: "Desktop",
                 img: "https://png.pngitem.com/pimgs/s/533-5339521_briefcase-hd-png-download.png",
                 link: "https://github.com/pascal-rithi-ke/portfolio",
+            },
+            {
+                title: "RealTime Chat",
+                subtitle: "Node Express Socket.io",
+                description: "Create a realtime chat application and can be used on web/desktop thanks to electron",
+                type: "Web-Desktop",
+                img: "https://miro.medium.com/max/700/1*DfmKdD8EwFzmpapP3lWj5Q.png",
+                link: "https://github.com/pascal-rithi-ke/socket.io",
+            },
+            {
+                title: "Calendar",
+                subtitle: "Node Express MongoDB",
+                description: "Create a TodoList diplay on a Calendar,",
+                type: "Web",
+                img: "https://thumbs.dreamstime.com/b/vecteur-de-symbole-bloc-notes-contour-d-un-avec-stylo-dans-l-avant-sur-le-fond-blanc-format-142213550.jpg",
+                link: "https://github.com/pascal-rithi-ke/calendar",
             }
         ],
         "experience":[

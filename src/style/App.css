@@ -35,11 +35,11 @@ body {
 }
 
 .contact{
+  position: absolute;
   margin-top: 50%;
   margin-left: 20%;
 }
 .contact a{
-  position: absolute;
   text-decoration: none;
   text-decoration: underline;
   color:white;
@@ -278,10 +278,13 @@ h1{
   .contact{
     margin-bottom: 150px;
   }
+  /*
   .profil_photo{
     width: 30%;
-    top: 250px;
+    margin-top: 60px;
+    position: absolute;
   }
+  */
     .cursor { 
         display: none;
     }

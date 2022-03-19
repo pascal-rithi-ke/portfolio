@@ -2,7 +2,6 @@
 
 * {
     cursor: none;
-    scroll-behavior: smooth;
     box-sizing: border-box;
     text-align: left;
 }
@@ -36,7 +35,7 @@ body {
 
 .contact{
   position: absolute;
-  margin-top: 50%;
+  margin-top: 25%;
   margin-left: 20%;
 }
 .contact a{
@@ -195,7 +194,7 @@ body {
     box-shadow: inset 0 0 10vw rgba(0,255,255,0.8);
     animation: spin 20s infinite linear;
   }
-  
+
   @keyframes spin {
     100% { transform: rotate(360deg); }
   }
@@ -267,7 +266,39 @@ h1{
     pointer-events: none;
   }
 
+.project h2{
+  text-align: center;
+}
+
+/*Navigation Bar*/
+
+.link {
+  z-index: 1;
+  padding-top: 50px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 1; bottom: 0; right: 0;
+}
+
+.link a{
+    text-decoration: none;
+    color: white;
+    margin: 20px;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+/*  Responsive  */
 @media only screen and (max-width: 600px) {
+
+  .profil_photo{
+    width: 40%;
+    margin-top: 0%;
+    position: absolute;
+    left: 30%;
+  }
+
   .project h2{
   margin-top: 50%;
   }
@@ -290,25 +321,14 @@ h1{
     }
 }
 
-.project h2{
-  text-align: center;
-}
-
-/*Navigation Bar*/
-
-.link {
-  z-index: 1;
-  padding-top: 50px;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 1; bottom: 0; right: 0;
-}
-
-.link a{
-    text-decoration: none;
-    color: white;
-    margin: 20px;
-}
-a:hover{
-    text-decoration: underline;
+@media only screen and (max-height: 500px) {
+  .card{
+   width: 90%;
+  }
+  .card__title{
+    font-size: medium;
+  }
+  .contact{
+    font-size: large;
+  }
 }

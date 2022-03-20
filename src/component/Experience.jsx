@@ -3,7 +3,6 @@ import Contact from "./Contact";
 
 function Experience(){
     return(
-    <>
     <div className="experience light">
         <h2>My Experience</h2>
         <ul className="cards">
@@ -28,9 +27,8 @@ function Experience(){
         </div>
         ))}
         </ul>
-    </div>
     <Contact/>
-    </>
+    </div>
     );
 }
 export default Experience;

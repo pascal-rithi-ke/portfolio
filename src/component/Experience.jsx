@@ -1,7 +1,9 @@
 import {data} from "../data_web/info";
+import Contact from "./Contact";
 
 function Experience(){
     return(
+    <>
     <div className="experience light">
         <h2>My Experience</h2>
         <ul className="cards">
@@ -27,6 +29,8 @@ function Experience(){
         ))}
         </ul>
     </div>
+    <Contact/>
+    </>
     );
 }
 export default Experience;

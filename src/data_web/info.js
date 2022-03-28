@@ -26,7 +26,7 @@ export const data = {
             },
             {
                 title: "GSB",
-                subtitle: "JavaFX - MySQL",
+                subtitle: "JavaFX MySQL",
                 description: "Build a Crud Desktop App with a login sytem for user",
                 type: "Desktop",
                 img: "https://lauretyann.files.wordpress.com/2014/03/logo1.png",
@@ -43,7 +43,7 @@ export const data = {
             {
                 title: "RealTime Chat",
                 subtitle: "Node Express Socket.io",
-                description: "Create a realtime chat application and can be used on web/desktop thanks to electron",
+                description: "Create a realtime chat application and can be used on web/desktop with electron",
                 type: "Web-Desktop",
                 img: "https://miro.medium.com/max/700/1*DfmKdD8EwFzmpapP3lWj5Q.png",
                 link: "https://github.com/pascal-rithi-ke/socket.io",
@@ -51,17 +51,25 @@ export const data = {
             {
                 title: "Calendar",
                 subtitle: "Node Express MongoDB",
-                description: "Create a TodoList diplay on a Calendar,",
+                description: "Create a TodoList display on a Calendar",
                 type: "Web",
                 img: "https://thumbs.dreamstime.com/b/vecteur-de-symbole-bloc-notes-contour-d-un-avec-stylo-dans-l-avant-sur-le-fond-blanc-format-142213550.jpg",
                 link: "https://github.com/pascal-rithi-ke/calendar",
+            },
+            {
+                title: "SlowMotion",
+                subtitle: "MongoDB Python Docker",
+                description: "Create a movie review application with React",
+                type: "Web",
+                img: "https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8=",
+                link: "https://github.com/pascal-rithi-ke/slowmotion/tree/master/jeuxvideo",
             }
         ],
         "experience":[
             {
                 title:"Safran (currently)",
-                subtitle: "SharePoint Datanalyst",
-                description: "Apprenticeship, manages sharepoints of a department and data analysis from PowerBI",
+                subtitle: "SharePoint Data Analyst",
+                description: "Apprenticeship, manages sharepoints of a department. Data analysis with PowerBI and development application(soon)",
                 img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg"
             },
             {

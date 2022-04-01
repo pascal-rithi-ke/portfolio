@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 * {
-    cursor: none;
     box-sizing: border-box;
     text-align: left;
 }
@@ -19,7 +18,6 @@ html,body {
   width: 100%;
   height: 100%;
   margin: 0;
-  overflow-x: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -298,6 +296,11 @@ a:hover{
 
 /*  Responsive  */
 @media only screen and (max-width: 600px) {
+
+  body,html{
+    overflow-x: hidden;
+  }
+
   .root{
     position: static;
   }
@@ -330,6 +333,9 @@ a:hover{
 }
 
 @media only screen and (max-height: 500px){
+  body,html{
+    overflow-x: hidden;
+  }
   h2{
     font-size:larger;
   }
@@ -345,6 +351,9 @@ a:hover{
 }
 
 @media only screen and (max-width: 300px){
+  body,html{
+    overflow-x: hidden;
+  }
   h2{
     font-size:larger;
   }

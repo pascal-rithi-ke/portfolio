@@ -19,7 +19,7 @@ export const data = {
             {
                 title: "La Bibliothèque",
                 subtitle: "PHP SQL",
-                description: "Create an online library with a book reservation and login system for user",
+                description: "Create an online library with a book reservation and a login system for users",
                 type: "Web",
                 img: "https://www.freeiconspng.com/thumbs/book-icon/book-icon-black-good-galleries--24.jpg",
                 link: "https://github.com/pascal-rithi-ke/Biblio",
@@ -27,7 +27,7 @@ export const data = {
             {
                 title: "GSB",
                 subtitle: "JavaFX MySQL",
-                description: "Build a Crud Desktop App with a login sytem for user",
+                description: "Build a Crud Desktop App with a login system for users",
                 type: "Desktop",
                 img: "https://lauretyann.files.wordpress.com/2014/03/logo1.png",
                 link: "https://github.com/Kaurey/APPLI_PPE",
@@ -43,7 +43,7 @@ export const data = {
             {
                 title: "RealTime Chat",
                 subtitle: "Node Express Socket.io",
-                description: "Create a realtime chat application and can be used on web/desktop with electron",
+                description: "Create a realtime chat application and can be used on web & desktop with electron",
                 type: "Web-Desktop",
                 img: "https://miro.medium.com/max/700/1*DfmKdD8EwFzmpapP3lWj5Q.png",
                 link: "https://github.com/pascal-rithi-ke/socket.io",
@@ -51,7 +51,7 @@ export const data = {
             {
                 title: "Calendar",
                 subtitle: "Node Express MongoDB",
-                description: "Create a TodoList display on a Calendar",
+                description: "Create a todolist that displays tasks on a calendar",
                 type: "Web",
                 img: "https://thumbs.dreamstime.com/b/vecteur-de-symbole-bloc-notes-contour-d-un-avec-stylo-dans-l-avant-sur-le-fond-blanc-format-142213550.jpg",
                 link: "https://github.com/pascal-rithi-ke/calendar",
@@ -69,7 +69,7 @@ export const data = {
             {
                 title:"Safran (currently)",
                 subtitle: "SharePoint Data Analyst",
-                description: "Apprenticeship, manages sharepoints of a department. Data analysis with PowerBI and development application(soon)",
+                description: "Apprenticeship, manage the Sharepoints of a department. Data analysis with PowerBI and development application(soon)",
                 img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg"
             },
             {
@@ -84,5 +84,89 @@ export const data = {
                 description: "InternShip, web consulting to creat a website booking rooms",
                 img: "https://cnstlltn.com/300x200/f191cd7b-0e94-47f6-8625-05c7be0d8bb1/logo+bloasis+fond+orange+canva.png"
             }
-    ]
+        ],
+        "tech_lang":[
+            {
+                title:"HTML",
+                img: require("../assets/html-5.png")
+            },
+            {
+                title:"CSS",
+                img: require("../assets/css-3.png")
+            },
+            {
+                title:"JS",
+                img: require("../assets/js.png")
+            },
+            {
+                title:"PHP",
+                img: require("../assets/php.png")
+            },
+            {
+                title:"Java",
+                img: require("../assets/java.png")
+            },
+            {
+                title:"Python",
+                img: require("../assets/python.png")
+            },
+            {
+                title:"C",
+                img: require("../assets/c.png")
+            }
+        ],
+        "tech_framework":[
+            {
+                title:"React/React Native",
+                img: require("../assets/react.png")
+            },
+            {
+                title:"Bootscrap",
+                img: require("../assets/bootscrap.png")
+            },
+        ],
+        "tech_bdd":[
+            {
+                title:"SQL",
+                img: require("../assets/database.png")
+            },
+            {
+                title:"MongoDB",
+                img: "https://pngset.com/images/mongodb-atlas-hits-amazon-web-services-marketplace-leaf-plant-balloon-sprout-transparent-png-2110680.png"
+            },
+        ],
+        "tech_tool":[
+            {
+                title:"VirtualBox",
+                img: "https://img2.freepng.fr/20180628/uvo/kisspng-virtualbox-virtual-machine-operating-systems-virtu-logo-box-5b350e0a57e296.44681647153020365836.jpg"
+            },
+            {
+                title:"GitHub",
+                img: require("../assets/github.png")
+            },
+            {
+                title:"DockerHub",
+                img: require("../assets/docker.png")
+            },
+            {
+                title:"NodeJs",
+                img: require("../assets/nodejs.png")
+            },
+            {
+                title:"AWS",
+                img: require("../assets/aws.png")
+            },
+            {
+                title:"VS Code",
+                img: require("../assets/vs_code.png")
+            },
+            {
+                title:"Eclipse Java",
+                img: require("../assets/eclipse.png")
+            },
+            {
+                title:"Android Studio",
+                img: require("../assets/android_studio.png")
+            },
+        ]
     }

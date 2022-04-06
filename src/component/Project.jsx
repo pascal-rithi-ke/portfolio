@@ -11,10 +11,9 @@ function Project(){
             <div key={index}>
             <li>
             <div className="card">
-            <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
+            <div style={{backgroundImage: `url(${data.img})`}} className="card__image"></div>
             <div className="card__overlay">
               <div className="card__header">
-                <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
                 <img className="card__thumb" src={data.img}/>
                 <div className="card__header-text">
                   <p className="card__title">{data.title} {data.subtitle}</p>

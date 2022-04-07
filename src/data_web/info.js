@@ -121,8 +121,8 @@ export const data = {
                 img: require("../assets/react.png")
             },
             {
-                title:"Bootscrap",
-                img: require("../assets/bootscrap.png")
+                title:"Bootstrap",
+                img: require("../assets/bootstrap.png")
             },
         ],
         "tech_bdd":[

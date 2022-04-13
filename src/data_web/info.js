@@ -59,9 +59,9 @@ export const data = {
             {
                 title: "SlowMotion",
                 subtitle: "MongoDB Python Docker",
-                description: "Create a movie review application with React",
+                description: "Create a video game review application with React",
                 type: "Web",
-                img: "https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8=",
+                img: "https://www.ynov-paris.com/medias/uploads/2020/05/classement-des-jeux.jpg",
                 link: "https://github.com/pascal-rithi-ke/slowmotion/tree/master/jeuxvideo",
             }
         ],

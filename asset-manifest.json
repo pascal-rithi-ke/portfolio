@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.3f701ee3.css",
-    "main.js": "/portfolio/static/js/main.fa613a51.js",
+    "main.js": "/portfolio/static/js/main.4a979ebe.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/photo.jpg": "/portfolio/static/media/photo.5962defea78b6ef022df.jpg",
     "static/media/aws.png": "/portfolio/static/media/aws.99ae03c5e8dbc24c9d7e.png",
@@ -9,7 +9,7 @@
     "static/media/bootstrap.png": "/portfolio/static/media/bootstrap.36241e83375e5009aaeb.png",
     "static/media/python.png": "/portfolio/static/media/python.6a5cbc319ab3ddf8ef92.png",
     "static/media/react.png": "/portfolio/static/media/react.86c8d9eba03e29814d2a.png",
-    "static/media/c.png": "/portfolio/static/media/c.ca323b325816f40cf155.png",
+    "static/media/symfony.png": "/portfolio/static/media/symfony.e9d12d25ec5e0141da36.png",
     "static/media/php.png": "/portfolio/static/media/php.4990580e9b615aeebb1f.png",
     "static/media/database.png": "/portfolio/static/media/database.96af83e68e3b32fb2dd7.png",
     "static/media/nodejs.png": "/portfolio/static/media/nodejs.007e99f68b718e476aba.png",
@@ -22,11 +22,11 @@
     "static/media/js.png": "/portfolio/static/media/js.3dfb665e058d08c99f28.png",
     "index.html": "/portfolio/index.html",
     "main.3f701ee3.css.map": "/portfolio/static/css/main.3f701ee3.css.map",
-    "main.fa613a51.js.map": "/portfolio/static/js/main.fa613a51.js.map",
+    "main.4a979ebe.js.map": "/portfolio/static/js/main.4a979ebe.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f701ee3.css",
-    "static/js/main.fa613a51.js"
+    "static/js/main.4a979ebe.js"
   ]
 }

@@ -1,6 +1,14 @@
 export const data = {
         "project":[
             {
+                title: "E-commerce",
+                subtitle: "Symfony Project",
+                description: "Create a CRUD E-commerce website with a login system for users",
+                type: "Web",
+                img: require("../assets/symfony.png"),
+                link: "https://github.com/bflorestal/e-commerce",
+            },
+            {
                 title: "Pokedex",
                 subtitle: "React Api(pokeApi)",
                 description: "Create a Pokedex with a SearchBar to display more informations",
@@ -110,15 +118,15 @@ export const data = {
                 title:"Python",
                 img: require("../assets/python.png")
             },
-            {
-                title:"C",
-                img: require("../assets/c.png")
-            }
         ],
         "tech_framework":[
             {
                 title:"React/React Native",
                 img: require("../assets/react.png")
+            },
+            {
+                title:"Symfony",
+                img: require("../assets/symfony.png")
             },
             {
                 title:"Bootstrap",

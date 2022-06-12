@@ -76,7 +76,7 @@ export const data = {
         "experience":[
             {
                 title:"Safran (currently)",
-                subtitle: "SharePoint Data Analyst",
+                subtitle: "Developer SharePoint and Python",
                 description: "Apprenticeship, manage the Sharepoints of a department. Development solution in python",
                 img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg"
             },

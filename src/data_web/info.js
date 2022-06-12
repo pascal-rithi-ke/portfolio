@@ -77,7 +77,7 @@ export const data = {
             {
                 title:"Safran (currently)",
                 subtitle: "SharePoint Data Analyst",
-                description: "Apprenticeship, manage the Sharepoints of a department. Data analysis with PowerBI and development application(soon)",
+                description: "Apprenticeship, manage the Sharepoints of a department. Development solution in python",
                 img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg"
             },
             {

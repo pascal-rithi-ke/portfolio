@@ -1,6 +1,13 @@
 export const data = {
         "project":[
             {
+                title: "Google API Project",
+                subtitle: "(Still in local)",
+                description: "Create a react-native location app with Google Maps API, django, mongodb",
+                type: "Web-Mobile",
+                img: require("../assets/react_native_APImaps.png"),
+            },
+            {
                 title: "E-commerce",
                 subtitle: "Symfony Project",
                 description: "Create a CRUD E-commerce website with a login system for users",

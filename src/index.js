@@ -5,6 +5,7 @@ import reportWebVitals from './report/reportWebVitals';
 
 import App from './container/App';
 import Project from './component/Project';
+import ErrorPage from './component/ErrorPage';
 import NavBar from './component/NavBar';
 import CustomCursor from "./component/CustomCursor";
 
@@ -19,6 +20,7 @@ ReactDOM.render(
   <Routes>
     <Route path="/portfolio" element={<App/>}></Route>
     <Route path="/portfolio/project" element={<Project/>}></Route>
+    <Route path="*" element={<ErrorPage/>}/>
   </Routes>
 </BrowserRouter>,
   document.getElementById('root')

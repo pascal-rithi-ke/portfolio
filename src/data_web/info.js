@@ -5,7 +5,7 @@ export const data = {
                 subtitle: "Symfony-Stripe Project",
                 description: "Create a E-commerce website with a login and payment system",
                 type: "Web",
-                img: require("../assets/react_native_APImaps.png"),
+                img: require("../assets/Stripe_logo.png"),
                 link: "https://github.com/Dalsaba/E-Motion/",
             },
             {

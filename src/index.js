@@ -20,7 +20,7 @@ ReactDOM.render(
   <Routes>
     <Route path="/portfolio" element={<App/>}></Route>
     <Route path="/portfolio/project" element={<Project/>}></Route>
-    <Route path="*" element={<ErrorPage/>}/>
+    <Route path="*" element={<ErrorPage/>}></Route>
   </Routes>
 </BrowserRouter>,
   document.getElementById('root')

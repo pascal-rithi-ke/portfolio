@@ -40,7 +40,7 @@ function Projects() {
       <section className="max-w-4xl mx-auto mb-12">
         <div className="flex items-center mb-6">
           {/* Flèche de Retour */}
-          <Link to="/portfolio" className="text-gray-600 hover:text-gray-800 transition-colors mr-4">
+          <Link to="/" className="text-gray-600 hover:text-gray-800 transition-colors mr-4">
             <ArrowLeftIcon className="w-6 h-6" />
           </Link>
           {/* Titre des Projets */}

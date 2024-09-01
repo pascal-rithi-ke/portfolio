@@ -5,6 +5,7 @@ function Project(){
     return(
     <div className="project light">
         <h2>My Projects</h2>
+        <a href="#contact-info" className="no-style">More on Github</a>
         <div className="wave"></div>
         <ul className="cards">
         {data.project.map((data,index)=>(

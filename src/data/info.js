@@ -10,7 +10,7 @@ export const data = {
             link: "https://github.com/pascal-rithi-ke/detection_arme",
         },
         {
-            title: "wasteland Warrior",
+            title: "Wasteland Warrior",
             subtitle: "React Native Game",
             description: "Interactive storytelling games with multiple choices",
             type: ["Mobile", "Web"],

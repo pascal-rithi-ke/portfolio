@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+
 import { data } from '../data/info';
 import Contact from './Contact';
+
+import { Link } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 function Projects() {
@@ -37,11 +40,11 @@ function Projects() {
     <div className="px-4 py-10 bg-gray-100 min-h-screen">
       {/* Section des Projets */}
       <section className="max-w-4xl mx-auto mb-12">
-        <div className="flex items-center mb-6">
+      <div className="flex items-center mb-6">
           {/* Flèche de Retour */}
-          <a href="/" className="text-gray-600 hover:text-gray-800 transition-colors mr-4">
+          <Link to="/" className="text-gray-600 hover:text-gray-800 transition-colors mr-4">
             <ArrowLeftIcon className="w-6 h-6" />
-          </a>
+          </Link>
           {/* Titre des Projets */}
           <h2 className="text-3xl font-bold text-gray-800">My Projects</h2>
           <p className="text-gray-600 ml-2">({filteredProjects.length} projects)</p>

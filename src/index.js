@@ -4,22 +4,18 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import reportWebVitals from './report/reportWebVitals';
 
 import App from './container/App';
-import Project from './component/Project';
+import Projects from './component/Projects';
 import ErrorPage from './component/ErrorPage';
 import NavBar from './component/NavBar';
-import CustomCursor from "./component/CustomCursor";
 
 import './style/App.css';
-import ScrollBar from './component/ScrollBar';
 
 ReactDOM.render(
   <BrowserRouter basename="/">
-    <ScrollBar/>
-    <CustomCursor/>
     <NavBar/>
   <Routes>
-    <Route path="/portfolio" element={<App/>}></Route>
-    <Route path="/portfolio/project" element={<Project/>}></Route>
+    <Route path="/" element={<App/>}></Route>
+    <Route path="/projects" element={<Projects/>}></Route>
     <Route path="*" element={<ErrorPage/>}></Route>
   </Routes>
 </BrowserRouter>,

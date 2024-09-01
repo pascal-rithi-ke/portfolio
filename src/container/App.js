@@ -1,20 +1,20 @@
-import Experience from "../component/Experience";
-import Info from "../component/Info";
+import React from 'react';
 
-import photo from "../images/photo.jpg";
+import Info from '../component/Info';
+import Experience from '../component/Experience';
+import Techno from '../component/Techno';
+import Contact from '../component/Contact';
 
 function App() {
   return (
-    <>
-    <div className="presentation">
-      <h2 className="light">I'm<br/>Kien Eng Pascal<br/>A fullstack developer</h2>
-      <img className="profil_photo" src={photo}/>
-      <div className="wave light"></div>
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center">
+      <div className="bg-white max-w-4xl w-full p-6 rounded-lg shadow-lg mt-10 mb-10">
+        <Info />
+        <Experience />
+        <Techno />
+        <Contact />
       </div>
-      <Info></Info>
-      <Experience className="light"/>
-   
-    </>
+    </div>
   );
 }
 

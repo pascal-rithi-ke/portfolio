@@ -5,7 +5,7 @@ function ErrorPage(){
     setInterval(() => setCounter(counter-1), 1000);
 
     window.setTimeout(function() {
-        window.location.href = '/portfolio';
+        window.location.href = '/';
     }, 5000);
     return(
         <div className='light'>

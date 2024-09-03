@@ -11,7 +11,7 @@ function ErrorPage() {
       setCounter((prev) => {
         if (prev <= 1) {
           clearInterval(interval);
-          navigate('/'); // Redirige vers la page d'accueil
+          navigate('/portfolio');
         }
         return prev - 1;
       });
@@ -32,7 +32,7 @@ function ErrorPage() {
           You will be redirected to the home page in {counter} second{counter !== 1 ? 's' : ''}.
         </p>
         <p className="text-gray-600">
-          If you are not redirected automatically, <Link to="/" className="text-blue-500 hover:underline">click here</Link> to go to the home page.
+          If you are not redirected automatically, <Link to="/portfolio" className="text-blue-500 hover:underline">click here</Link> to go to the home page.
         </p>
       </div>
     </div>

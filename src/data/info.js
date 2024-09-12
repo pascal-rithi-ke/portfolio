@@ -2,16 +2,14 @@ export const data = {
     "project":[
         {
             title: "Weapon detection",
-            subtitle: "Python YOLOv3",
             description: "Create a weapon detection on a video or by image",
-            type: ["IA", "Big Data"],
+            type: ["IA"],
             tech: ["Python", "YOLOv3"],
-            img: require("../assets/weapon_dectection.png"),
+            img: "../assets/weapon_dectection.png",
             link: "https://github.com/pascal-rithi-ke/detection_arme",
         },
         {
             title: "Wasteland Warrior",
-            subtitle: "React Native Game",
             description: "Interactive storytelling games with multiple choices",
             type: ["Mobile", "Web"],
             tech: ["React Native"],
@@ -20,43 +18,38 @@ export const data = {
         },
         {
             title: "ChatBot disease detection",
-            subtitle: "Python Flask React Spacy",
-            description: "Create a chatbot that can detect diseases with NLP and Machine Learning",
+            description: "Create a chatbot to detect diseases",
             type: ["IA", "Web"],
-            tech: ["Python", "Flask", "React", "Spacy"],
-            img: require("../assets/chatbot_medical.jpeg"),
+            tech: ["Python", "React", "Spacy"],
+            img: "../assets/chatbot_medical.jpeg",
             link: "https://detection-maladie-5y6v-iwt84fwzt-pascal-rithi-kes-projects.vercel.app/",
         },
         {
             title: "Data architecture",
-            subtitle: "Kafka Cassandra Docker",
-            description: "Récupérer des données en temps réel et les stocker dans une base de données NoSQL",
+            description: "Retrieve real-time data and store it in a NoSQL database.",
             type: ["Big Data"],
             tech: ["Kafka", "Cassandra", "Docker"],
-            img: require("../assets/big_data.jpg"),
+            img: "../assets/big_data.jpg",
             link: "https://github.com/AdrienMirabelle/Projet_Architecture_Data",
         },
         {
             title: "E-motion",
-            subtitle: "Symfony Stripe Project",
             description: "Create a E-commerce website with a login and payment system",
             type: ["Web", "Payment System"],
-            tech: ["Symfony", "Stripe"],
-            img: require("../assets/Stripe_logo.png"),
+            tech: ["Symfony", "Stripe", "PHP", "SQL"],
+            img: "../assets/Stripe_logo.png",
             link: "https://github.com/Dalsaba/E-Motion/",
         },
         {
             title: "E-commerce",
-            subtitle: "Symfony Project",
             description: "Create a CRUD E-commerce website with a login system for users",
             type: ["Web"],
-            tech: ["Symfony"],
-            img: require("../assets/symfony.png"),
+            tech: ["Symfony", "PHP", "SQL"],
+            img: "../assets/symfony.png",
             link: "https://github.com/bflorestal/e-commerce",
         },
         {
             title: "Pokedex",
-            subtitle: "React Api(pokeApi)",
             description: "Create a Pokedex with a SearchBar to display more informations",
             type: ["Web"],
             tech: ["React", "API"],
@@ -65,16 +58,14 @@ export const data = {
         },
         {
             title: "MangaInfo",
-            subtitle: "React Native MongoDB Python",
-            description: "Self-taught project, show more informations by clicking on button from a list of manga",
+            description: "Simple application to display manga information",
             type: ["Mobile", "Web"],
-            tech: ["React Native", "MongoDB", "Python"],
+            tech: ["React Native", "MongoDB"],
             img: "https://i.pinimg.com/736x/56/93/dc/5693dcd41e4d36d6ab97a33a53c3a381.jpg",
             link: "https://github.com/pascal-rithi-ke/MangaInfo",
         },
         {
             title: "Portfolio",
-            subtitle: "React",
             description: "Create and deploy my portfolio with git pages",
             type: ["Web"],
             tech: ["React"],
@@ -83,25 +74,22 @@ export const data = {
         },
         {
             title: "RealTime Chat",
-            subtitle: "Node Express Socket.io",
-            description: "Create a realtime chat application and can be used on web & desktop with electron",
+            description: "Realtime chat application, can be used on web & desktop with electron",
             type: ["Web", "Desktop"],
-            tech: ["Node", "ExpressJS", "Socket.io"],
+            tech: ["ExpressJS", "Socket.io", "Electron"],
             img: "https://miro.medium.com/max/700/1*DfmKdD8EwFzmpapP3lWj5Q.png",
             link: "https://github.com/pascal-rithi-ke/socket.io",
         },
         {
             title: "Calendar",
-            subtitle: "Node Express MongoDB",
             description: "Create a todolist that displays tasks on a calendar",
             type: ["Web"],
-            tech: ["Node", "Express", "MongoDB"],
+            tech: ["ExpressJS", "MongoDB"],
             img: "https://thumbs.dreamstime.com/b/vecteur-de-symbole-bloc-notes-contour-d-un-avec-stylo-dans-l-avant-sur-le-fond-blanc-format-142213550.jpg",
             link: "https://github.com/pascal-rithi-ke/calendar",
         },
         {
             title: "SlowMotion",
-            subtitle: "MongoDB Python Docker",
             description: "Create a video game review application with React",
             type: ["Web"],
             tech: ["MongoDB", "Python", "Docker"],
@@ -110,8 +98,7 @@ export const data = {
         },
         {
             title: "La Bibliothèque",
-            subtitle: "PHP SQL",
-            description: "Create an online library with a book reservation and a login system for users",
+            description: "Online library with a book reservation and a login system for users",
             type: ["Web"],
             tech: ["PHP", "SQL"],
             img: "https://www.freeiconspng.com/thumbs/book-icon/book-icon-black-good-galleries--24.jpg",
@@ -151,51 +138,43 @@ export const data = {
     "tech_lang":[
         {
             title:"HTML",
-            img: require("../assets/html-5.png")
+            img: "../assets/html-5.png"
         },
         {
             title:"CSS",
-            img: require("../assets/css-3.png")
+            img: "../assets/css-3.png"
         },
         {
             title:"JS",
-            img: require("../assets/js.png")
+            img: "../assets/js.png"
         },
         {
             title:"PHP",
-            img: require("../assets/php.png")
+            img: "../assets/php.png"
         },
         {
             title:"Python",
-            img: require("../assets/python.png")
+            img: "../assets/python.png"
         },
     ],
     "tech_framework":[
         {
             title:"React / React Native",
-            img: require("../assets/react.png")
+            img: "../assets/react.png"
         },
         {
             title:"Symfony",
-            img: require("../assets/symfony.png")
-        },
-        {
-            title:"Django",
-            img: require("../assets/django.jpg")
+            img: "../assets/symfony.png"
         },
         {
             title:"Tailwind",
-            img: require("../assets/tailwind.png")
-        },
-        {
-            title:"Bootstrap",
-            img: require("../assets/bootstrap.png")
+            img: "../assets/tailwind.png"
         },
     ],
-    "tech_bdd":[
+    "tech_Database":[
         {
             title:"SQL",
-            img: require("../assets/sql.png")
+            img: "../assets/sql.png"
         },
         {
             title:"MongoDB",
@@ -209,63 +188,109 @@ export const data = {
         },
         {
             title:"GitHub",
-            img: require("../assets/github.png")
+            img: "../assets/github.png"
         },
         {
             title:"Bitbucket",
-            img: require("../assets/bitbucket.jpg")
+            img: "../assets/bitbucket.jpg"
         },
         {
             title:"Jira",
-            img: require("../assets/jira.png")
+            img: "../assets/jira.png"
         },
         {
             title:"Docker",
-            img: require("../assets/docker.png")
+            img: "../assets/docker.png"
         },
         {
             title:"VS Code",
-            img: require("../assets/vs_code.png")
+            img: "../assets/vs_code.png"
         },
     ],
     "tech_cloud":[
         {
             title:"AWS",
-            img: require("../assets/aws.png")
+            img: "../assets/aws.png"
         },
         {
             title:"GCP",
-            img: require("../assets/gcp.png")
+            img: "../assets/gcp.png"
         },
         {
             title:"Azure",
-            img: require("../assets/azure.png")
+            img: "../assets/azure.png"
         },
     ],
     "type_project":[
         {
-            title:"IA",
-            color : "bg-blue-500"
-        },
-        {
             title:"Mobile",
-            color : "bg-green-500"
+            color : "bg-black"
         },
         {
             title:"Web",
-            color : "bg-yellow-500"
-        },
-        {
-            title:"Big Data",
-            color : "bg-red-500"
+            color : "bg-black"
         },
         {
             title:"Desktop",
-            color : "bg-indigo-500"
+            color : "bg-black"
+        },
+        {
+            title:"IA",
+            color : "bg-black"
+        },
+        {
+            title:"Big Data",
+            color : "bg-black"
         },
         {
             title:"Payment System",
-            color : "bg-purple-500"
-        }
+            color : "bg-black"
+        },
+    ],
+    "type_techo":[
+        {
+            "title":"Python",
+            "type":"Language"
+        },
+        {
+            "title":"PHP",
+            "type":"Language"
+        },
+        {
+            "title":"React",
+            "type":"Framework"
+        },
+        {
+            "title":"React Native",
+            "type":"Framework"
+        },
+        {
+            "title":"Symfony",
+            "type":"Framework"
+        },
+        {
+            "title":"SQL",
+            "type":"Database"
+        },
+        {
+            "title":"MongoDB",
+            "type":"Database"
+        },
+        {
+            "title":"Docker",
+            "type":"Tool"
+        },
+        {
+            "title": "Cassandra",
+            "type": "Database"
+        },
+        {
+            "title": "Spacy",
+            "type": "Library"
+        },
+        {
+            "title": "ExpressJS",
+            "type": "Framework"
+        },
     ]
 }

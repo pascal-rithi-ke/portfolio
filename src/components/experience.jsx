@@ -1,41 +1,31 @@
-// ExperienceList.jsx
 import React from "react";
+import moteur from "../assets/moteur.jpg";
+import ellise from "../assets/ellise.png";
 
-// Exemple de données pour les expériences
-const experiences = [
-  {
-    title: "Développeur Frontend",
-    company: "Entreprise XYZ",
-    description:
-      "Développement de fonctionnalités interactives et responsive pour des applications web.",
-    date: "Janvier 2022 - Présent",
-  },
-  {
-    title: "Développeur Backend",
-    company: "Entreprise ABC",
-    description:
-      "Conception et gestion d'API RESTful, optimisation des bases de données.",
-    date: "Mai 2020 - Décembre 2021",
-  },
-  // Ajoute d'autres expériences si nécessaire
-];
+import ScrollReveal from "./ScrollReveal";
 
-const Experience = () => {
+const MoteurAvion = () => {
   return (
-    <div className="p-6 bg-gray-100">
-      <h2 className="text-2xl font-bold mb-4">Expériences Professionnelles</h2>
-      <ul className="space-y-4">
-        {experiences.map((exp, index) => (
-          <li key={index} className="bg-white shadow-md rounded-lg p-4">
-            <h3 className="text-xl font-semibold">{exp.title}</h3>
-            <h4 className="text-lg font-medium text-gray-600">{exp.company}</h4>
-            <p className="text-gray-800 mt-2">{exp.description}</p>
-            <p className="text-gray-500 mt-1">{exp.date}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ScrollReveal direction="translate-y-10" delay="0.5s">
+      <div className="flex justify-center items-center h-screen bg-gray-900 overflow-hidden">
+        <div className="relative">
+          {/* Image du moteur */}
+          <img
+            src={moteur}
+            alt="Moteur"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl object-cover"
+          />
+
+          {/* Ellise de l'hélice avec l'animation */}
+          <img
+            src={ellise}
+            alt="Hélice"
+            className="absolute top-0 left-0 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl object-cover animate-spin-slow"
+          />
+        </div>
+      </div>
+    </ScrollReveal>
   );
 };
 
-export default Experience;
+export default MoteurAvion;

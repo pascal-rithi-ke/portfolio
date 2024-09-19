@@ -1,9 +1,6 @@
-// Shadcn
-import { Separator } from "@/components/ui/separator"
-
 // Custom components
 import AnimatedBlocks from './presentation.jsx'
-import Experience from './experience.jsx'
+import Experience from './Experience.jsx'
 import Technologie from "./technologie.jsx"
 import ProjectsShowcase from "./showcaseProjetcs.jsx"
 

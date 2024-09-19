@@ -5,7 +5,7 @@ export const data = {
             description: "Create a weapon detection on a video or by image",
             type: ["IA"],
             tech: ["Python", "YOLOv3"],
-            img: "../assets/weapon_dectection.png",
+            img: "/project/weapon_dectection.png",
             link: "https://github.com/pascal-rithi-ke/detection_arme",
         },
         {
@@ -21,7 +21,7 @@ export const data = {
             description: "Create a chatbot to detect diseases",
             type: ["IA", "Web"],
             tech: ["Python", "React", "Spacy"],
-            img: "../assets/chatbot_medical.jpeg",
+            img: "/project/chatbot_medical.jpeg",
             link: "https://detection-maladie-5y6v-iwt84fwzt-pascal-rithi-kes-projects.vercel.app/",
         },
         {
@@ -29,7 +29,7 @@ export const data = {
             description: "Retrieve real-time data and store it in a NoSQL database.",
             type: ["Big Data"],
             tech: ["Kafka", "Cassandra", "Docker"],
-            img: "../assets/big_data.jpg",
+            img: "/project/big_data.jpg",
             link: "https://github.com/AdrienMirabelle/Projet_Architecture_Data",
         },
         {
@@ -37,7 +37,7 @@ export const data = {
             description: "Create a E-commerce website with a login and payment system",
             type: ["Web", "Payment System"],
             tech: ["Symfony", "Stripe", "PHP", "SQL"],
-            img: "../assets/Stripe_logo.png",
+            img: "/project/Stripe_logo.png",
             link: "https://github.com/Dalsaba/E-Motion/",
         },
         {
@@ -45,7 +45,7 @@ export const data = {
             description: "Create a CRUD E-commerce website with a login system for users",
             type: ["Web"],
             tech: ["Symfony", "PHP", "SQL"],
-            img: "../assets/symfony.png",
+            img: "/project/symfony.png",
             link: "https://github.com/bflorestal/e-commerce",
         },
         {
@@ -137,44 +137,36 @@ export const data = {
     ],
     "tech_lang":[
         {
-            title:"HTML",
-            img: "../assets/html-5.png"
-        },
-        {
-            title:"CSS",
-            img: "../assets/css-3.png"
-        },
-        {
             title:"JS",
-            img: "../assets/js.png"
+            img: "/language-prog/js.png"
         },
         {
             title:"PHP",
-            img: "../assets/php.png"
+            img: "/language-prog/php.png"
         },
         {
             title:"Python",
-            img: "../assets/python.png"
+            img: "/language-prog/python.png"
         },
     ],
     "tech_framework":[
         {
             title:"React / React Native",
-            img: "../assets/react.png"
+            img: "/framework/react.png"
         },
         {
             title:"Symfony",
-            img: "../assets/symfony.png"
+            img: "/framework/symfony.png"
         },
         {
             title:"Tailwind",
-            img: "../assets/tailwind.png"
+            img: "/framework/tailwind.png"
         },
     ],
     "tech_Database":[
         {
             title:"SQL",
-            img: "../assets/sql.png"
+            img: "/database/sql.png"
         },
         {
             title:"MongoDB",
@@ -183,42 +175,34 @@ export const data = {
     ],
     "tech_tool":[
         {
-            title:"VirtualBox",
-            img: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png"
-        },
-        {
             title:"GitHub",
-            img: "../assets/github.png"
+            img: "/tools/github.png"
         },
         {
             title:"Bitbucket",
-            img: "../assets/bitbucket.jpg"
+            img: "/tools/bitbucket.jpg"
         },
         {
             title:"Jira",
-            img: "../assets/jira.png"
+            img: "/tools/jira.png"
         },
         {
             title:"Docker",
-            img: "../assets/docker.png"
-        },
-        {
-            title:"VS Code",
-            img: "../assets/vs_code.png"
+            img: "/tools/docker.png"
         },
     ],
     "tech_cloud":[
         {
             title:"AWS",
-            img: "../assets/aws.png"
+            img: "/cloud/aws.png"
         },
         {
             title:"GCP",
-            img: "../assets/gcp.png"
+            img: "/cloud/gcp.png"
         },
         {
             title:"Azure",
-            img: "../assets/azure.png"
+            img: "/cloud/azure.png"
         },
     ],
     "type_project":[

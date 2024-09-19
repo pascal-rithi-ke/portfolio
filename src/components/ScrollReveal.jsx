@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const ScrollReveal = ({
   children,
-  direction = "translate-y-10",
+  direction = "translate-y-10", // Ceci laisse la possibilité de changer la direction par défaut
   delay = "0s",
 }) => {
   const revealRef = useRef(null);
@@ -31,8 +31,8 @@ const ScrollReveal = ({
   return (
     <div
       ref={revealRef}
-      className={`transition-opacity duration-1000 ease-in-out transform ${direction} delay-${delay} ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0"
+      className={`transition-opacity duration-1000 ease-in-out transform ${delay} ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       {children}

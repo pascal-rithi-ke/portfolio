@@ -41,16 +41,6 @@ const App = () => {
         </Routes>
         <Contacts />
         <Footer />
-
-        {/* Bouton Scroll to Top */}
-        {showScroll && (
-          <button
-            className="fixed bottom-10 right-10 p-3 bg-white opacity-40 text-black rounded-full shadow-xl focus:outline-none flex items-center justify-center w-12 h-12 hover:animate-bounce hover:opacity-100"
-            onClick={scrollToTop}
-          >
-            <span className="text-2xl">↑</span>
-          </button>
-        )}
       </div>
     </Router>
   );

@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Separator } from "@/components/ui/separator";  // Import du composant Separator
 
 export default function Navbar() {
   return (
@@ -27,7 +28,7 @@ export default function Navbar() {
                       to="/"
                       className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 focus:shadow-md leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="mb-2 mt-4 text-lg font-medium">
+                      <div className="mb-2 mt-4 text-lg font-semibold leading-none">
                         <img src="/src/assets/photo.jpg" className="pb-4" />
                         Introduction
                       </div>
@@ -37,14 +38,16 @@ export default function Navbar() {
                     </Link>
                   </NavigationMenuLink>
                 </li>
-                {/* Liens avec structure titre et description */}
+                {/* Ajout d'un séparateur visible uniquement sur mobile */}
+                <Separator className="md:hidden" /> 
+
                 <li>
                   <NavigationMenuLink asChild>
                     <Link
-                      to="/#experience"
+                      to="/#experiences"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">
+                      <div className="mb-2 mt-4 text-lg font-semibold leading-none">
                         Experience
                       </div>
                       <p className="text-sm leading-snug text-muted-foreground">
@@ -54,13 +57,16 @@ export default function Navbar() {
                     </Link>
                   </NavigationMenuLink>
                 </li>
+                {/* Ajout d'un séparateur visible uniquement sur mobile */}
+                <Separator className="md:hidden" />
+
                 <li>
                   <NavigationMenuLink asChild>
                     <Link
                       to="/#technologies"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">
+                      <div className="mb-2 mt-4 text-lg font-semibold leading-none">
                         Technologies
                       </div>
                       <p className="text-sm leading-snug text-muted-foreground">
@@ -70,13 +76,16 @@ export default function Navbar() {
                     </Link>
                   </NavigationMenuLink>
                 </li>
+                {/* Ajout d'un séparateur visible uniquement sur mobile */}
+                <Separator className="md:hidden" />
+
                 <li>
                   <NavigationMenuLink asChild>
                     <Link
                       to="/#projects"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">
+                      <div className="mb-2 mt-4 text-lg font-semibold leading-none">
                         Projects showcases
                       </div>
                       <p className="text-sm leading-snug text-muted-foreground">
@@ -124,6 +133,8 @@ const ListItem = React.forwardRef((props, ref) => {
           </p>
         </Link>
       </NavigationMenuLink>
+      {/* Séparateur visible uniquement sur mobile */}
+      <Separator className="md:hidden" />
     </li>
   );
 });

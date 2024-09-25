@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import FormContact from "./formContact";
+import FormContact from "./form/formContact";
 
 export function Contacts() {
   return (

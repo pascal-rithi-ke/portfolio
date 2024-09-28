@@ -9,7 +9,7 @@ import FormContact from "./form/formContact";
 
 export function Contacts() {
   return (
-    <>
+    <div className="pt-8 pb-12 px-6">
       <h2 id="contact" className="text-2xl font-bold mb-6">Contacts</h2>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
@@ -54,7 +54,7 @@ export function Contacts() {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-    </>
+    </div>
   );
 }
 

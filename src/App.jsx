@@ -8,7 +8,7 @@ import Allprojects from './components/pages/allProjects/Allprojects.jsx';
 
 import Contacts from './components/contacts.jsx';
 import Footer from './components/footer.jsx';
-import './App.css';
+import './style/App.css';
 
 const App = () => {
   return (

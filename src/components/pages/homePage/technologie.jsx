@@ -11,11 +11,11 @@ const groupedTechnologies = {
   tools: data.tech_tool,
 };
 
-const ShowcaseTechnologies = () => {
+const Technologies = () => {
   return (
-    <div className="container mx-auto py-8 px-4">
-      <h2 id="technologies" className="text-3xl font-bold text-center mt-8">
-        Compétences techniques
+    <div className="container mr-auto px-4 py-8">
+      <h2 className="text-3xl font-bold text-center mt-8">
+        Technical Skills
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {Object.keys(groupedTechnologies).map((category, index) => (
@@ -47,4 +47,4 @@ const ShowcaseTechnologies = () => {
   );
 };
 
-export default ShowcaseTechnologies;
+export default Technologies;

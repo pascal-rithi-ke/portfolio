@@ -6,8 +6,6 @@ import Navbar from './components/navbar/navbar.jsx';
 import HomePage from './components/pages/homePage/HomePage.jsx';
 import Allprojects from './components/pages/allProjects/Allprojects.jsx';
 
-import Contacts from './components/contacts.jsx';
-import Footer from './components/footer.jsx';
 import './style/App.css';
 
 const App = () => {
@@ -20,8 +18,6 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<Allprojects />} />
         </Routes>
-        <Contacts />
-        <Footer />
       </div>
     </Router>
   );

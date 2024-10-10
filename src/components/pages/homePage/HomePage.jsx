@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+
 import Introduction from './Introduction.jsx';
 import Experience from './Experience.jsx';
-import Technologie from './Technologie.jsx';
-import ProjectsShowcase from './ProjectsShowcase.jsx';
+import Contacts from "@/components/contacts.jsx";
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState("intro");
@@ -52,14 +52,9 @@ function HomePage() {
         <Experience />
       </div>
 
-      {/* Technologie Section */}
-      <div ref={techRef} id="tech" className="h-screen snap-start flex justify-center items-center">
-        <Technologie />
-      </div>
-
       {/* Projects Showcase Section */}
-      <div ref={projectsRef} id="projects" className="h-screen snap-start flex justify-center items-center">
-        <ProjectsShowcase />
+        <div ref={projectsRef} id="contacts" className="h-screen snap-start flex justify-center items-center">
+        <Contacts />
       </div>
 
       {/* Navigation par points */}
@@ -73,12 +68,8 @@ function HomePage() {
           className={`block w-3 h-3 ${activeSection === 'experience' ? 'bg-black' : 'bg-gray-500'} rounded-full transition-colors duration-300`}
         ></a>
         <a
-          href="#tech"
-          className={`block w-3 h-3 ${activeSection === 'tech' ? 'bg-black' : 'bg-gray-500'} rounded-full transition-colors duration-300`}
-        ></a>
-        <a
-          href="#projects"
-          className={`block w-3 h-3 ${activeSection === 'projects' ? 'bg-black' : 'bg-gray-500'} rounded-full transition-colors duration-300`}
+          href="#contacts"
+          className={`block w-3 h-3 ${activeSection === 'contacts' ? 'bg-black' : 'bg-gray-500'} rounded-full transition-colors duration-300`}
         ></a>
       </div>
     </div>

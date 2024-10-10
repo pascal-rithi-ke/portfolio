@@ -34,6 +34,14 @@ const Introduction = () => {
               </p>
             </div>
           </SlideBottom>
+
+          <SlideLeft>
+            <div className="p-8 w-full">
+              <p className="text-black text-left text-lg md:text-2xl">
+                JS - PHP - Python - React - Node.js - Express - Django - Flask - TensorFlow - Keras - PyTorch - OpenCV - MySQL - PostgreSQL - MongoDB - Docker - AWS - Google Cloud - Heroku
+              </p>
+            </div>
+          </SlideLeft>
         </div>
 
         <SlideRight>

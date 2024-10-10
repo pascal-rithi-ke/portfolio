@@ -12,6 +12,7 @@ import { data } from "../../../data/info";
 import SlideInTop from "../../animation/SlideInTop";
 import SlideInLeft from "../../animation/SlideInLeft";
 import SlideInRight from "../../animation/SlideInRight";
+import Contact from "../../contacts.jsx";
 
 const Allprojects = () => {
   const [selectedTech, setSelectedTech] = useState([]);
@@ -262,6 +263,7 @@ const Allprojects = () => {
           </div>
         </div>
       )}
+      <Contact />
     </div>
   );
 };

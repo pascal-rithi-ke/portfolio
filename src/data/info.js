@@ -107,32 +107,69 @@ export const data = {
     ],
     "experience":[
         {
-            title:"ZooLemag",
+            title:"CultureBD",
             subtitle: "Developer Fullstack PHP/JS/SQL",
             description: "Apprenticeship, maintenance of the website and development of new features",
             img: "https://zoolemag.com/img/brand/logo.png",
-            date: "Sept 2022 - Sept 2024"
+            date: "Sept 2022 - Sept 2024",
+            id: "2",
+            year : "2024"
         },
         {
             title:"Safran",
             subtitle: "Developer SharePoint and Python",
             description: "Apprenticeship: Manage department SharePoints, develop Python solutions.",
             img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg",
-            date: "Oct 2021 - Sept 2022"
+            date: "Oct 2021 - Sept 2022",
+            id: "1",
+            year : "2022"
         },
         {
             title:"Okatro",
             subtitle: "PHP - IIS",
             description: "Internship, create an intranet for a middle school using PHP and IIS",
             img: "https://media.licdn.com/dms/image/v2/C560BAQGo-KExUmlWhA/company-logo_200_200/company-logo_200_200/0/1630614927626?e=2147483647&v=beta&t=04TIGd8jI371yuNkhAR4SCNuOJSsrO8ktDn1FsAS2-A",
-            date: "Mar 2021 -  May 2021"
+            date: "Feb 2021 -  May 2021",
+            id: "0",
+            year : "2021"
         },
         {
             title:"Bloasis",
             subtitle: "Web consultant",
             description: "InternShip, web consulting to creat a website booking rooms",
             img: "https://cnstlltn.com/300x200/f191cd7b-0e94-47f6-8625-05c7be0d8bb1/logo+bloasis+fond+orange+canva.png",
-            date : "May 2020 - Jun 2020"
+            date : "May 2020 - Jun 2020",
+            id: "0",
+            year : "2020"
+        }
+    ],
+    "education":[
+        {
+            id: "2",
+            title:"Master Dev Big Data IA",
+            subtitle: "Master 2",
+            description: "Master 2 Dev Big Data IA at the University of Paris",
+            date: "Sept 2022 - Sept 2024",
+            education: "education",
+            year : "2024"
+        },
+        {
+            id: "1",
+            title:"Bachelor Fullstack DevOps",
+            subtitle: "Bachelor",
+            description: "Bachelor Fullstack DevOps at the University of Paris",
+            date: "Oct 2021 - Sept 2022",
+            education: "education",
+            year : "2022"
+        },
+        {
+            id: "0",
+            title:"BTS SIO option SLAM",
+            subtitle: "BTS",
+            description: "BTS SIO option SLAM at the University of Paris",
+            date: "Sep 2019 -  Jun 2021",
+            education: "education",
+            year : "2021"
         }
     ],
     "tech_lang":[

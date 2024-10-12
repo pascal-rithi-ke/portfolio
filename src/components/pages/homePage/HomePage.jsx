@@ -43,12 +43,13 @@ function HomePage() {
   return (
     <div className="relative snap-y snap-mandatory scroll-smooth">
       {/* Introduction Section */}
-      <div ref={introRef} id="introduction" className="h-screen snap-start flex justify-center items-center">
+      <div ref={introRef} id="introduction" className="">
         <Introduction />
       </div>
 
       {/* Experience Section */}
-      <div ref={expRef} id="experience" className="h-screen snap-start flex justify-center items-center">
+      <div ref={expRef} id="experience" className="h-screen snap-start justify-center items-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-10">Experience</h2>
         <Experience />
       </div>
 
@@ -68,7 +69,7 @@ function HomePage() {
           className={`block w-3 h-3 ${activeSection === 'experience' ? 'bg-black' : 'bg-gray-500'} rounded-full transition-colors duration-300`}
         ></a>
         <a
-          href="#contacts"
+          href="#contact"
           className={`block w-3 h-3 ${activeSection === 'contacts' ? 'bg-black' : 'bg-gray-500'} rounded-full transition-colors duration-300`}
         ></a>
       </div>

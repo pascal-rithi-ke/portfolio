@@ -54,23 +54,6 @@ export default function Navbar() {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <Separator className="md:hidden" />
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <a
-                        href="/#tech"
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="mb-2 mt-2 text-lg font-semibold leading-none">
-                          Technologies
-                        </div>
-                        <p className="text-sm leading-snug text-muted-foreground">
-                          Here is a list of the technologies I know and happen to use.
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                  <Separator className="md:hidden" />
                   <li>
                     <NavigationMenuLink asChild>
                       <a

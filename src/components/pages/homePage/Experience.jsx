@@ -1,9 +1,14 @@
 // Experience.js
 import React from 'react';
-import LeftBlock from './experience/LeftBlock';
 import RightBlock from './experience/RightBlock';
+import LeftBlock from './experience/LeftBlock';
+
+import { data } from '@/data/info';
 
 function Experience() {
+  // Extraire les données d'éducation et d'expérience du JSON
+  const { education, experience } = data;
+
   return (
     <div className="relative w-full h-screen flex justify-center items-center">
       {/* La timeline */}
@@ -11,12 +16,28 @@ function Experience() {
       
       {/* Contenu de la timeline */}
       <div className="w-full max-w-4xl flex flex-col items-center">
-        <LeftBlock title="Project Inception" date="March 2023" description="Kickoff meeting and initial project planning phase completed." />
-        <RightBlock title="Design Phase" date="April 2023" description="UI/UX designs finalized and approved by stakeholders." />
-        <LeftBlock title="Development Starts" date="May 2023" description="Coding begins with frontend and backend teams working in parallel." />
-        <RightBlock title="Alpha Testing" date="July 2023" description="Internal testing phase begins with early prototype." />
-        <LeftBlock title="Beta Release" date="September 2023" description="Limited public beta launched for user feedback." />
-        <RightBlock title="Final Launch" date="November 2023" description="Official product launch with marketing campaign." />
+        {education.map((edu) => (
+          <React.Fragment key={edu.id}>
+            {/* Bloc d'éducation à gauche */}
+            <LeftBlock
+              title={edu.title}
+              date={edu.date}
+              description={edu.description}
+              year={edu.year}
+            />
+            {/* Filtrer les expériences associées à l'éducation */}
+            {experience
+              .filter((exp) => exp.id === edu.id)
+              .map((exp) => (
+                <RightBlock
+                  key={exp.title}
+                  title={exp.title}
+                  date={exp.date}
+                  description={exp.description}
+                />
+              ))}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );

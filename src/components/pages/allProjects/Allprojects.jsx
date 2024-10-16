@@ -20,19 +20,17 @@ const Allprojects = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isTechVisible, setIsTechVisible] = useState({}); // Pour gérer la visibilité par catégorie
 
   useEffect(() => {
-    // Simule la fin de l'animation après un délai de 500ms
     const timer = setTimeout(() => {
       setIsContentVisible(true);
-    }, 500); // Ce délai doit correspondre à la durée de l'animation
-
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (isContentVisible) {
-      // Une fois que le contenu est visible, faire défiler vers l'élément avec l'id 'projects'
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -92,18 +90,31 @@ const Allprojects = () => {
     setShowFilterModal(!showFilterModal);
   };
 
+  // Fonction pour basculer l'affichage des sous-catégories par type de technologie
+  const toggleTechVisibility = (category) => {
+    setIsTechVisible((prevState) => ({
+      ...prevState,
+      [category]: !prevState[category],
+    }));
+  };
+
+  // Fonction pour réinitialiser les filtres
+  const clearAllFilters = () => {
+    setSelectedTech([]); // Réinitialiser toutes les technologies sélectionnées
+    setActiveTab("all"); // Réinitialiser la catégorie active à "all"
+  };
+
   return (
     <div className="container mx-auto p-4 pb-8">
-      {/* Le titre du projet avec un ID pour le scroll */}
       <SlideInTop>
         <h1 id="projects" className="text-3xl font-bold mb-6 pb-4 pt-10">
           Projects
         </h1>
       </SlideInTop>
 
-      {/* Rendu du contenu seulement après la fin de l'animation */}
       {isContentVisible && (
         <div>
+          {/* Vue Web */}
           <div className="hidden lg:block mb-6">
             <SlideInTop>
               <Tabs value={activeTab} onValueChange={handleTabChange}>
@@ -118,6 +129,7 @@ const Allprojects = () => {
             </SlideInTop>
           </div>
 
+          {/* Vue Mobile */}
           <SlideInTop>
             <button
               onClick={toggleFilterModal}
@@ -128,7 +140,7 @@ const Allprojects = () => {
           </SlideInTop>
 
           {showFilterModal && (
-            <div className="fixed inset-0 z-50 bg-gray-800 bg-opacity-75 flex justify-center items-center">
+            <div className="fixed inset-0 z-50 bg-gray-800 bg-opacity-75 flex justify-center items-center lg:hidden">
               <div className="bg-white p-6 rounded-lg w-3/4 max-w-md relative">
                 <button
                   onClick={toggleFilterModal}
@@ -157,6 +169,55 @@ const Allprojects = () => {
                     </label>
                   ))}
                 </div>
+
+                <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
+                  Technologies:
+                </label>
+                {/* Sous-catégories avec option de hide/show */}
+                {Object.keys(techFilters).map((category) => (
+                  <div key={category} className="mb-4">
+                    <div
+                      className="cursor-pointer text-lg font-semibold mb-2 text-gray-800 flex justify-between"
+                      onClick={() => toggleTechVisibility(category)}
+                    >
+                      <span>{category}</span>
+                      <span>
+                        {isTechVisible[category] ? "-" : "+"} {/* Icone toggle */}
+                      </span>
+                    </div>
+                    {isTechVisible[category] && (
+                      <div className="flex flex-col space-y-2">
+                        {techFilters[category]
+                          .sort((a, b) => a.title.localeCompare(b.title))
+                          .map((tech) => (
+                            <label
+                              key={tech.title}
+                              className="inline-flex items-center"
+                            >
+                              <input
+                                type="checkbox"
+                                value={tech.title}
+                                checked={selectedTech.includes(tech.title)}
+                                onChange={() => handleTechChange(tech.title)}
+                                className="form-checkbox h-5 w-5 text-indigo-600"
+                              />
+                              <span className="ml-2 text-gray-700">
+                                {tech.title}
+                              </span>
+                            </label>
+                          ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* Bouton Clear All */}
+                <button
+                  onClick={clearAllFilters}
+                  className="mt-6 bg-black text-white px-4 py-2 rounded-lg w-full text-center"
+                >
+                  Clear All
+                </button>
               </div>
             </div>
           )}
@@ -168,12 +229,12 @@ const Allprojects = () => {
                   <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
                     Filter :
                   </label>
+
+                  {/* Sidebar visible uniquement en version desktop */}
                   {Object.keys(techFilters).map((category) => (
                     <div key={category} className="mb-4">
                       <h3 className="text-lg font-semibold mb-2">{category}</h3>
                       <div className="flex flex-col space-y-2">
-                        {" "}
-                        {/* Organisation en colonnes et espace entre chaque ligne */}
                         {techFilters[category]
                           .sort((a, b) => a.title.localeCompare(b.title))
                           .map((tech) => (

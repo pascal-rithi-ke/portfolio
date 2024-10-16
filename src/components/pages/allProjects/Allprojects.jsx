@@ -171,7 +171,9 @@ const Allprojects = () => {
                   {Object.keys(techFilters).map((category) => (
                     <div key={category} className="mb-4">
                       <h3 className="text-lg font-semibold mb-2">{category}</h3>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-col space-y-2">
+                        {" "}
+                        {/* Organisation en colonnes et espace entre chaque ligne */}
                         {techFilters[category]
                           .sort((a, b) => a.title.localeCompare(b.title))
                           .map((tech) => (
@@ -223,7 +225,9 @@ const Allprojects = () => {
                                 className="w-full h-[200px] object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
                               />
                               <CardTitle>{project.title}</CardTitle>
-                              <CardDescription>{project.subtitle}</CardDescription>
+                              <CardDescription>
+                                {project.subtitle}
+                              </CardDescription>
                             </CardHeader>
                             <CardContent>
                               <p className="text-gray-700">

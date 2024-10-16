@@ -1,90 +1,124 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Separator } from "@/components/ui/separator";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <div className="flex justify-end items-center p-2 md:p-4">
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-              <NavigationMenuContent className="p-6">
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] left-[-50px]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <a
-                        href="/#introduction"
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 focus:shadow-md leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="mb-2 mt-4 text-lg font-semibold leading-none">
-                          <img src="/src/assets/photo.jpg" className="pb-4" />
-                          Introduction
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          A brief talk about myself and my passions.
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                  <Separator className="md:hidden" />
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <a
-                        href="/#experience"
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="mb-2 mt-2 text-lg font-semibold leading-none">
-                          Experience
-                        </div>
-                        <p className="text-sm leading-snug text-muted-foreground">
-                          A look at my academic background and professional journey.
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <a
-                        href="/#projects"
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-black hover:text-white focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="mb-2 mt-2 text-lg font-semibold leading-none">
-                          Projects showcases
-                        </div>
-                        <p className="text-sm leading-snug text-muted-foreground">
-                          Showcases of my most successful projects and contributions.
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <Link to="/projects/#projects">Projects</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <a href="#contact">Contacts</a>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+    <nav className="fixed top-0 left-0 w-screen z-50">
+      <div className="container mx-auto flex justify-end items-center p-4"> {/* Justify-start pour aligner à gauche */}
+
+        {/* Navigation links for desktop/tablet */}
+        <ul className="hidden md:flex space-x-10 scale-75">
+          <li>
+            <Link
+              to="/#introduction"
+              className="text-xl relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/projects/#projects"
+              className="text-xl relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+            >
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/#contacts"
+              className="text-xl relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+            >
+              Contacts
+            </Link>
+          </li>
+        </ul>
+
+
+        {/* Hamburger button for mobile */}
+        <button
+          className={`md:hidden block focus:outline-none w-12 h-12 flex items-center justify-center hover:bg-gray-300 rounded ${menuOpen ? "bg-gray-300" : ""
+            }`}
+          onClick={toggleMenu}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+            />
+          </svg>
+        </button>
       </div>
-    </div>
+
+      {/* Full screen sliding menu for mobile */}
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-black text-white transform ${menuOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-500 ease-in-out z-40`}
+      >
+        <button
+          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white"
+          onClick={toggleMenu}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <ul className="flex flex-col items-center justify-center h-full space-y-8">
+          <li>
+            <Link
+              to="/#introduction"
+              className="text-2xl hover:text-black"
+              onClick={toggleMenu}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/projects/#projects"
+              className="text-2xl hover:text-black"
+              onClick={toggleMenu}
+            >
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/#contacts"
+              className="text-2xl hover:text-black"
+              onClick={toggleMenu}
+            >
+              Contacts
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }

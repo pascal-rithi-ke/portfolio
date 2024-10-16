@@ -113,16 +113,18 @@ export const data = {
             img: "https://zoolemag.com/img/brand/logo.png",
             date: "Sept 2022 - Sept 2024",
             id: "2",
-            year : "2024"
+            year : "2024",
+            yearStart : "2022"
         },
         {
-            title:"Safran",
+            title:"Safran Aircraft Engines",
             subtitle: "Developer SharePoint and Python",
             description: "Apprenticeship: Manage department SharePoints, develop Python solutions.",
             img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg",
             date: "Oct 2021 - Sept 2022",
             id: "1",
-            year : "2022"
+            year : "2022",
+            yearStart : "2021"
         },
         {
             title:"Okatro",
@@ -148,28 +150,34 @@ export const data = {
             id: "2",
             title:"Master Dev Big Data IA",
             subtitle: "Master 2",
-            description: "Master 2 Dev Big Data IA at the University of Paris",
+            description: "Master 2 Dev Big Data IA at IPSSI",
             date: "Sept 2022 - Sept 2024",
             education: "education",
-            year : "2024"
+            year : "2022",
+            yearEnd : "2024",
+            img : "https://ac24f38e.rocketcdn.me/wp-content/uploads/2021/11/ipssi-logo.png"
         },
         {
             id: "1",
             title:"Bachelor Fullstack DevOps",
             subtitle: "Bachelor",
-            description: "Bachelor Fullstack DevOps at the University of Paris",
+            description: "Bachelor Fullstack DevOps at IPSSI",
             date: "Oct 2021 - Sept 2022",
             education: "education",
-            year : "2022"
+            year : "2021",
+            yearEnd : "2022",
+            img : "https://ac24f38e.rocketcdn.me/wp-content/uploads/2021/11/ipssi-logo.png"
         },
         {
             id: "0",
             title:"BTS SIO option SLAM",
             subtitle: "BTS",
-            description: "BTS SIO option SLAM at the University of Paris",
+            description: "BTS SIO option SLAM at IPSSI",
             date: "Sep 2019 -  Jun 2021",
             education: "education",
-            year : "2021"
+            year : "2019",
+            yearEnd : "2021",
+            img : "https://ac24f38e.rocketcdn.me/wp-content/uploads/2021/11/ipssi-logo.png"
         }
     ],
     "tech_lang":[

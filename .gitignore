@@ -1,6 +1,8 @@
 .env
 video
 
+todo.txt
+
 # Logs
 logs
 *.log

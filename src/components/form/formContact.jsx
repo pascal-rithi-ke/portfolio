@@ -7,48 +7,79 @@ const formContact = () => {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Create a new object with the form data
-  const templateParams = {
-    from_email: formData.email,
-    message: formData.message,
+  // Fonction de validation des champs
+  const validateForm = () => {
+    if (!formData.email) {
+      return "L'email est requis.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      return "Please enter a valid email address.";
+    } else if (!formData.message) {
+      return "A message is required.";
+    }
+    return null; // Aucun problème, formulaire valide
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const serviceId = import.meta.env.VITE_EMAIL_serviceId;
-    const templateId = import.meta.env.VITE_EMAIL_templateId;
-    const publicKey = import.meta.env.VITE_EMAIL_publicKey;
+    // Réinitialiser les messages d'erreur avant de soumettre
+    setError(null);
+
+    // Validation du formulaire
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    const serviceId = "";
+    const templateId = "";
+    const publicKey = "";
 
     emailjs
-      .send(serviceId, templateId, templateParams, publicKey)
+      .send(serviceId, templateId, {
+        from_email: formData.email,
+        message: formData.message,
+      }, publicKey)
       .then(() => {
         setSubmitted(true);
       })
-      .catch((err) => console.error(err));
-  }
+      .catch((err) => {
+        console.error(err);
+        setError("An error occurred while sending the message. Please try again later.");
+      });
+  };
 
   return (
     <div className="flex flex-col justify-center items-center p-5">
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
         {submitted ? (
           <p className="text-green-600 font-bold text-center mb-4">
-            Thank you for your message, I will get back to you soon!
+            Thank you for your message! I will get back to you as soon as possible.
           </p>
         ) : (
           <>
+            {error && (
+              <p className="text-red-600 font-bold text-center mb-4">
+                {error}
+              </p>
+            )}
+            <p className="text-red-500 font-bold text-center mb-4">
+              The service is currently unavailable.
+            </p>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="email"
                   className="block text-gray-700 font-semibold"
                 >
-                  Your email :
+                  Your email<span className="text-red-500">*</span> :
                 </label>
                 <input
                   type="email"
@@ -66,7 +97,7 @@ const formContact = () => {
                   htmlFor="message"
                   className="block text-gray-700 font-semibold"
                 >
-                  Message :
+                  Message<span className="text-red-500">*</span> :
                 </label>
                 <textarea
                   id="message"

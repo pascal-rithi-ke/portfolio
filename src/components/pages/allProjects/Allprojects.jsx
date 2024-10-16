@@ -95,9 +95,11 @@ const Allprojects = () => {
   return (
     <div className="container mx-auto p-4 pb-8">
       {/* Le titre du projet avec un ID pour le scroll */}
-      <h1 id="projects" className="text-3xl font-bold mb-6 pb-4 pt-10">
-        Projects
-      </h1>
+      <SlideInTop>
+        <h1 id="projects" className="text-3xl font-bold mb-6 pb-4 pt-10">
+          Projects
+        </h1>
+      </SlideInTop>
 
       {/* Rendu du contenu seulement après la fin de l'animation */}
       {isContentVisible && (
@@ -263,7 +265,6 @@ const Allprojects = () => {
           </div>
         </div>
       )}
-      <Contact />
     </div>
   );
 };

@@ -22,7 +22,7 @@ export const data = {
             type: ["IA", "Web"],
             tech: ["Python", "React", "Spacy"],
             img: "/project/chatbot_medical.jpeg",
-            link: "https://detection-maladie-5y6v-iwt84fwzt-pascal-rithi-kes-projects.vercel.app/",
+            link: "https://github.com/pascal-rithi-ke/detection_maladie",
         },
         {
             title: "Data architecture",

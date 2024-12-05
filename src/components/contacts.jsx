@@ -34,7 +34,7 @@ export function Contacts({ isVisible }) {
                   <span className="font-bold">Email :</span>
                   <a
                     href="mailto:pascal.rithi@gmail.com"
-                    className="ml-2 relative inline-block text-black group"
+                    className="ml-2 relative inline-block text-gray-500 group hover:text-black"
                   >
                     pascal.rithi@gmail.com
                     <span
@@ -48,7 +48,7 @@ export function Contacts({ isVisible }) {
                     href="https://github.com/pascal-rithi-ke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-2 relative inline-block text-black group"
+                    className="ml-2 relative inline-block text-gray-500 group hover:text-black"
                   >
                     pascal-rithi-ke
                     <span

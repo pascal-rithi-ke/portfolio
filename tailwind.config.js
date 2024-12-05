@@ -4,6 +4,10 @@ module.exports = {
 	content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
 	theme: {
 		extend: {
+			spacing: {
+				'15': '15px',
+				'16': '16px',
+			},
 			height: {
 				'200vh': '200vh',
 			},

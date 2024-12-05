@@ -149,8 +149,8 @@ export const data = {
         {
             id: "2",
             title:"Master Dev Big Data IA",
-            subtitle: "Master 2",
-            description: "Master 2 Dev Big Data IA at IPSSI",
+            subtitle: "Master",
+            description: "Master Dev Big Data IA at IPSSI",
             date: "Sept 2022 - Sept 2024",
             education: "education",
             year : "2022",

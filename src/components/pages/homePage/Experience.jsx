@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { data } from "@/data/info";
 
 import DimplomaIcon from "@/components/icons/Diploma.jsx";
-import BriefcaseIcon from "@/components/icons/briefcase.jsx";
+import BriefcaseIcon from "@/components/icons/Briefcase.jsx";
 
 function Experience() {
   const { education, experience } = data;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { data } from "@/data/info";
 
-import DimplomaIcon from "@/components/icons/Diploma";
-import BriefcaseIcon from "@/components/icons/briefcase";
+import DimplomaIcon from "@/components/icons/Diploma.jsx";
+import BriefcaseIcon from "@/components/icons/briefcase.jsx";
 
 function Experience() {
   const { education, experience } = data;

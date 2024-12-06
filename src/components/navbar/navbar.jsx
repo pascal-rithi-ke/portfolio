@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,30 +13,38 @@ export default function Navbar() {
       <div
         className={`container mx-auto flex justify-end items-center p-2 md:p-4 bg-white ${
           menuOpen ? "md:shadow-none" : "shadow-custom"
-        } md:shadow-none`} // Toggle shadow-custom based on menuOpen state
+        } md:shadow-none`}
       >
-        {/* Navigation links for desktop/tablet */}
         <ul className="hidden md:flex space-x-10 scale-75">
           <li>
-            <Link
+            <NavLink
               to="/#introduction"
-              className="text-xl text-gray-500 relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full hover:text-black"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl text-black font-bold relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+                  : "text-xl text-gray-500 relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+              }
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/projects/#projects"
-              className="text-xl relative text-gray-500 hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl text-black font-bold relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+                  : "text-xl text-gray-500 relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+              }
             >
               Projects
-            </Link>
+            </NavLink>
           </li>
           <li>
+            {/* Ne pas appliquer de classe active à "Contacts" */}
             <Link
               to="/#contacts"
-              className="text-xl relative text-gray-500 hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
+              className="text-xl text-gray-500 relative hover:text-black before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:transform before:-translate-x-1/2 hover:before:w-full"
             >
               Contacts
             </Link>
@@ -95,24 +103,33 @@ export default function Navbar() {
 
         <ul className="flex flex-col items-center justify-center h-full space-y-8">
           <li>
-            <Link
+            <NavLink
               to="/#introduction"
-              className="text-2xl hover:text-black"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-2xl md:text-black"
+                  : "text-2xl md:hover:text-black"
+              }
               onClick={toggleMenu}
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/projects/#projects"
-              className="text-2xl hover:text-black"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-2xl md:text-black"
+                  : "text-2xl md:hover:text-black"
+              }
               onClick={toggleMenu}
             >
               Projects
-            </Link>
+            </NavLink>
           </li>
           <li>
+            {/* Ne pas appliquer de classe active à "Contacts" */}
             <Link
               to="/#contacts"
               className="text-2xl hover:text-black"

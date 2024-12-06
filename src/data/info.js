@@ -45,7 +45,7 @@ export const data = {
             description: "Create a CRUD E-commerce website with a login system for users",
             type: ["Web"],
             tech: ["Symfony", "PHP", "SQL"],
-            img: "/project/symfony.png",
+            img: "https://www.noiise.com/wp-content/uploads/2023/11/definition-ecommerce.jpg",
             link: "https://github.com/bflorestal/e-commerce",
         },
         {

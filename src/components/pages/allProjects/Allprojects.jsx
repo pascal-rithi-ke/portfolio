@@ -10,6 +10,8 @@ function Allprojects() {
   const projects = data.project;
 
   const [isMobile, setIsMobile] = useState(false);
+  const [showModal, setShowModal] = useState(false); // Ajout de l'état du modal
+  const [currentProject, setCurrentProject] = useState(null); // Projet sélectionné
 
   // Fonction pour vérifier si l'écran est mobile ou non
   const checkIfMobile = () => {
@@ -25,6 +27,16 @@ function Allprojects() {
       window.removeEventListener("resize", checkIfMobile);
     };
   }, []);
+
+  const handleProjectClick = (project) => {
+    setCurrentProject(project); // Définit le projet sélectionné
+    setShowModal(true); // Affiche le modal
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Ferme le modal
+    setCurrentProject(null); // Réinitialise le projet sélectionné
+  };
 
   // Utiliser useEffect pour faire défiler vers le haut lorsqu'on accède à la section "projects"
   useEffect(() => {
@@ -52,11 +64,9 @@ function Allprojects() {
 
           {projects.map((project, index) => (
             <a
-              href={project.link}
               key={index}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block group overflow-hidden relative"
+              onClick={() => isMobile && handleProjectClick(project)} // Ouvre le modal au clic sur mobile
+              className="block group overflow-hidden relative cursor-pointer"
             >
               {/* Animation sur chaque bloc en fonction de l'index */}
               <div className="relative">
@@ -110,21 +120,67 @@ function Allprojects() {
                 )}
               </div>
 
-              {/* Détails au survol */}
-              <div className="absolute inset-0 text-left bg-black bg-opacity-90 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 sm:display-none">
-                <h3 className="text-xl font-bold text-center mt-4">{project.title}</h3>
-                <p className="mt-10 text-center">{project.description}</p>
-                <div className="mt-5">
-                  <span className="font-semibold">Project Type:</span> {project.type.join(", ")}
+              {!isMobile && (
+                <div className="absolute inset-0 text-left bg-black bg-opacity-90 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 sm:display-none">
+                  <h3 className="text-xl font-bold text-center mt-4">{project.title}</h3>
+                  <p className="mt-10 text-center">{project.description}</p>
+                  <div className="mt-5">
+                    <span className="font-semibold">Project Type:</span> {project.type.join(", ")}
+                  </div>
+                  <div className="mt-3">
+                    <span className="font-semibold">Tech:</span> {project.tech.join(", ")}
+                  </div>
                 </div>
-                <div className="mt-3">
-                  <span className="font-semibold">Tech:</span> {project.tech.join(", ")}
-                </div>
-              </div>
+              )}
             </a>
           ))}
         </div>
       </div>
+
+      {/* Modal Pop-up pour mobile */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+          <div className="bg-white p-8 rounded-lg max-w-lg w-full mx-4 relative">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 text-black"
+              aria-label="Close"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            {currentProject && (
+              <>
+                <h3 className="text-2xl font-semibold text-center">{currentProject.title}</h3>
+                <img
+                  src={currentProject.img}
+                  alt={currentProject.title}
+                  className="w-full h-auto object-cover mt-4"
+                />
+                <p className="mt-4 text-center">{currentProject.description}</p>
+                <div className="mt-5">
+                  <span className="font-semibold">Project Type:</span> {currentProject.type.join(", ")}
+                </div>
+                <div className="mt-3">
+                  <span className="font-semibold">Tech:</span> {currentProject.tech.join(", ")}
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

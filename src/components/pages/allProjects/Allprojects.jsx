@@ -6,27 +6,15 @@ import SlideRight from "../../animation/SlideInRight";
 import SlideTop from "../../animation/SlideInTop";
 import SlideBottom from "../../animation/SlideInBottom";
 
+import useIsMobile from "../../modular/useIsMobile";
+
 function Allprojects() {
   const projects = data.project;
 
-  const [isMobile, setIsMobile] = useState(false);
   const [showModal, setShowModal] = useState(false); // Ajout de l'état du modal
   const [currentProject, setCurrentProject] = useState(null); // Projet sélectionné
 
-  // Fonction pour vérifier si l'écran est mobile ou non
-  const checkIfMobile = () => {
-    setIsMobile(window.innerWidth <= 768);
-  };
-
-  useEffect(() => {
-    checkIfMobile(); // Vérifier à l'initialisation si c'est mobile ou non
-    window.addEventListener("resize", checkIfMobile); // Listener pour les changements de taille
-
-    // Nettoyage de l'événement lors du démontage du composant
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
-  }, []);
+  const isMobile = useIsMobile();
 
   const handleProjectClick = (project) => {
     setCurrentProject(project); // Définit le projet sélectionné

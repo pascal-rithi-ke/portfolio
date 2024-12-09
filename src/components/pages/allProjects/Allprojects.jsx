@@ -1,176 +1,337 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { data } from "../../../data/info";
 
-import SlideLeft from "../../animation/SlideInLeft";
-import SlideRight from "../../animation/SlideInRight";
-import SlideTop from "../../animation/SlideInTop";
-import SlideBottom from "../../animation/SlideInBottom";
+import SlideInTop from "../../animation/SlideInTop";
+import SlideInLeft from "../../animation/SlideInLeft";
+import SlideInRight from "../../animation/SlideInRight";
+import Contact from "../../contacts.jsx";
 
-import useIsMobile from "../../modular/useIsMobile";
+const Allprojects = () => {
+  const [selectedTech, setSelectedTech] = useState([]);
+  const [activeTab, setActiveTab] = useState("all");
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isTechVisible, setIsTechVisible] = useState({}); // Pour gérer la visibilité par catégorie
 
-function Allprojects() {
-  const projects = data.project;
-
-  const [showModal, setShowModal] = useState(false); // Ajout de l'état du modal
-  const [currentProject, setCurrentProject] = useState(null); // Projet sélectionné
-
-  const isMobile = useIsMobile();
-
-  const handleProjectClick = (project) => {
-    setCurrentProject(project); // Définit le projet sélectionné
-    setShowModal(true); // Affiche le modal
-  };
-
-  const closeModal = () => {
-    setShowModal(false); // Ferme le modal
-    setCurrentProject(null); // Réinitialise le projet sélectionné
-  };
-
-  // Utiliser useEffect pour faire défiler vers le haut lorsqu'on accède à la section "projects"
   useEffect(() => {
-    if (window.location.hash === "#projects") {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 300);
-    }
+    const timer = setTimeout(() => {
+      setIsContentVisible(true);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
-  // Définir les classes dynamiquement en fonction de isMobile
-  const containerClasses = isMobile
-    ? "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 flex flex-wrap md:flex-none"
-    : "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4";
+  useEffect(() => {
+    if (isContentVisible) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [isContentVisible]);
+
+  const techFilters = data.type_techo.reduce((acc, tech) => {
+    if (acc[tech.type]) {
+      acc[tech.type].push(tech);
+    } else {
+      acc[tech.type] = [tech];
+    }
+    return acc;
+  }, {});
+
+  const filterProjects = (type) => {
+    return data.project.filter((project) => {
+      const typeMatches = type === "all" || project.type.includes(type);
+      const techMatches =
+        selectedTech.length === 0 ||
+        selectedTech.every((tech) => project.tech.includes(tech));
+
+      return typeMatches && techMatches;
+    });
+  };
+
+  const tabs = [
+    { label: "All", value: "all" },
+    ...data.type_project.map((type) => ({
+      label: type.title,
+      value: type.title,
+    })),
+  ];
+
+  const handleTechChange = (tech) => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setSelectedTech((prevSelected) =>
+        prevSelected.includes(tech)
+          ? prevSelected.filter((t) => t !== tech)
+          : [...prevSelected, tech]
+      );
+      setIsAnimating(false);
+    }, 200);
+  };
+
+  const handleTabChange = (value) => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setActiveTab(value);
+      setIsAnimating(false);
+    }, 200);
+  };
+
+  const toggleFilterModal = () => {
+    setShowFilterModal(!showFilterModal);
+  };
+
+  // Fonction pour basculer l'affichage des sous-catégories par type de technologie
+  const toggleTechVisibility = (category) => {
+    setIsTechVisible((prevState) => ({
+      ...prevState,
+      [category]: !prevState[category],
+    }));
+  };
+
+  // Fonction pour réinitialiser les filtres
+  const clearAllFilters = () => {
+    setSelectedTech([]); // Réinitialiser toutes les technologies sélectionnées
+    setActiveTab("all"); // Réinitialiser la catégorie active à "all"
+  };
 
   return (
-    <div className="md:mt-40">
-      <div
-        id="projects"
-        className="md:h-screen flex md:items-center md:justify-center sm:mt-0 px-4 transform md:scale-75 sm:h-1/2"
-        style={{ marginTop: "calc(80px + 20px)" }}
-      >
-        {/* Masonry Layout avec images de tailles variables */}
-        <div className={containerClasses}>
+    <div className="container mx-auto p-4 pb-8">
+      <SlideInTop>
+        <h1 id="projects" className="text-3xl font-bold mb-6 pb-4 pt-10 hidden sm:block">
+          Projects
+        </h1>
+      </SlideInTop>
 
-          {projects.map((project, index) => (
-            <a
-              key={index}
-              onClick={() => isMobile && handleProjectClick(project)} // Ouvre le modal au clic sur mobile
-              className="block group overflow-hidden relative cursor-pointer"
-            >
-              {/* Animation sur chaque bloc en fonction de l'index */}
-              <div className="relative">
-                {index % 4 === 0 && (
-                  <SlideLeft>
-                    <img
-                      src={project.img}
-                      alt={`Project ${index + 1}`}
-                      className="w-28 md:w-full h-auto object-cover transition-all duration-300"
-                      style={{
-                        breakInside: "avoid",
-                      }}
-                    />
-                  </SlideLeft>
-                )}
-                {index % 4 === 1 && (
-                  <SlideRight>
-                    <img
-                      src={project.img}
-                      alt={`Project ${index + 1}`}
-                      className="w-28 md:w-full h-auto object-cover transition-all duration-300"
-                      style={{
-                        breakInside: "avoid",
-                      }}
-                    />
-                  </SlideRight>
-                )}
-                {index % 4 === 2 && (
-                  <SlideTop>
-                    <img
-                      src={project.img}
-                      alt={`Project ${index + 1}`}
-                      className="w-28 md:w-full h-auto object-cover transition-all duration-300"
-                      style={{
-                        breakInside: "avoid",
-                      }}
-                    />
-                  </SlideTop>
-                )}
-                {index % 4 === 3 && (
-                  <SlideBottom>
-                    <img
-                      src={project.img}
-                      alt={`Project ${index + 1}`}
-                      className="w-28 md:w-full h-auto object-cover transition-all duration-300"
-                      style={{
-                        breakInside: "avoid",
-                      }}
-                    />
-                  </SlideBottom>
-                )}
-              </div>
+      {isContentVisible && (
+        <div className="pt-20 md:pt-0">
+          {/* Vue Web */}
+          <div className="hidden lg:block mb-6">
+            <SlideInTop>
+              <Tabs value={activeTab} onValueChange={handleTabChange}>
+                <TabsList className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 pb-4">
+                  {tabs.map((tab) => (
+                    <TabsTrigger key={tab.value} value={tab.value}>
+                      {tab.label}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </Tabs>
+            </SlideInTop>
+          </div>
 
-              {!isMobile && (
-                <div className="absolute inset-0 text-left bg-black bg-opacity-90 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 sm:display-none">
-                  <h3 className="text-xl font-bold text-center mt-4">{project.title}</h3>
-                  <p className="mt-10 text-center">{project.description}</p>
-                  <div className="mt-5">
-                    <span className="font-semibold">Project Type:</span> {project.type.join(", ")}
-                  </div>
-                  <div className="mt-3">
-                    <span className="font-semibold">Tech:</span> {project.tech.join(", ")}
-                  </div>
-                </div>
-              )}
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal Pop-up pour mobile */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
-          <div className="bg-white p-8 rounded-lg max-w-lg w-full mx-4 relative">
+          {/* Vue Mobile */}
+          <SlideInTop>
             <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-black"
-              aria-label="Close"
+              onClick={toggleFilterModal}
+              className="block lg:hidden mb-4 bg-black text-white px-4 py-2 rounded-lg w-full text-center"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              Filter
             </button>
-            {currentProject && (
-              <>
-                <h3 className="text-2xl font-semibold text-center">{currentProject.title}</h3>
-                <img
-                  src={currentProject.img}
-                  alt={currentProject.title}
-                  className="w-full h-auto object-cover mt-4"
-                />
-                <p className="mt-4 text-center">{currentProject.description}</p>
-                <div className="mt-5">
-                  <span className="font-semibold">Project Type:</span> {currentProject.type.join(", ")}
+          </SlideInTop>
+
+          {showFilterModal && (
+            <div className="fixed inset-0 z-50 bg-gray-800 bg-opacity-75 flex justify-center items-center lg:hidden">
+              <div className="bg-white p-6 rounded-lg w-3/4 max-w-md relative">
+                <button
+                  onClick={toggleFilterModal}
+                  className="absolute top-2 right-2 text-gray-600 text-2xl font-bold"
+                >
+                  &times;
+                </button>
+
+                <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
+                  Categories:
+                </label>
+                <div className="flex flex-col gap-2 pb-4">
+                  {tabs.map((tab) => (
+                    <label key={tab.value} className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        value={tab.value}
+                        checked={activeTab === tab.value}
+                        onChange={() => {
+                          handleTabChange(tab.value);
+                          toggleFilterModal();
+                        }}
+                        className="form-checkbox h-5 w-5 text-indigo-600"
+                      />
+                      <span className="ml-2 text-gray-700">{tab.label}</span>
+                    </label>
+                  ))}
                 </div>
-                <div className="mt-3">
-                  <span className="font-semibold">Tech:</span> {currentProject.tech.join(", ")}
-                </div>
-              </>
-            )}
+
+                <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
+                  Technologies:
+                </label>
+                {/* Sous-catégories avec option de hide/show */}
+                {Object.keys(techFilters).map((category) => (
+                  <div key={category} className="mb-4">
+                    <div
+                      className="cursor-pointer text-lg font-semibold mb-2 text-gray-800 flex justify-between"
+                      onClick={() => toggleTechVisibility(category)}
+                    >
+                      <span>{category}</span>
+                      <span>
+                        {isTechVisible[category] ? "-" : "+"} {/* Icone toggle */}
+                      </span>
+                    </div>
+                    {isTechVisible[category] && (
+                      <div className="flex flex-col space-y-2">
+                        {techFilters[category]
+                          .sort((a, b) => a.title.localeCompare(b.title))
+                          .map((tech) => (
+                            <label
+                              key={tech.title}
+                              className="inline-flex items-center"
+                            >
+                              <input
+                                type="checkbox"
+                                value={tech.title}
+                                checked={selectedTech.includes(tech.title)}
+                                onChange={() => handleTechChange(tech.title)}
+                                className="form-checkbox h-5 w-5 text-indigo-600"
+                              />
+                              <span className="ml-2 text-gray-700">
+                                {tech.title}
+                              </span>
+                            </label>
+                          ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* Bouton Clear All */}
+                <button
+                  onClick={clearAllFilters}
+                  className="mt-6 bg-black text-white px-4 py-2 rounded-lg w-full text-center"
+                >
+                  Clear All
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-8 pb-6">
+            <SlideInLeft>
+              <div className="hidden lg:block w-full lg:w-64">
+                <aside className="mt-6">
+                  <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
+                    Filter :
+                  </label>
+
+                  {/* Sidebar visible uniquement en version desktop */}
+                  {Object.keys(techFilters).map((category) => (
+                    <div key={category} className="mb-4">
+                      <h3 className="text-lg font-semibold mb-2">{category}</h3>
+                      <div className="flex flex-col space-y-2">
+                        {techFilters[category]
+                          .sort((a, b) => a.title.localeCompare(b.title))
+                          .map((tech) => (
+                            <label
+                              key={tech.title}
+                              className="inline-flex items-center"
+                            >
+                              <input
+                                type="checkbox"
+                                value={tech.title}
+                                checked={selectedTech.includes(tech.title)}
+                                onChange={() => handleTechChange(tech.title)}
+                                className="form-checkbox h-5 w-5 text-indigo-600"
+                              />
+                              <span className="ml-2 text-gray-700">
+                                {tech.title}
+                              </span>
+                            </label>
+                          ))}
+                      </div>
+                    </div>
+                  ))}
+                </aside>
+              </div>
+            </SlideInLeft>
+
+            <SlideInRight>
+              <Tabs value={activeTab} onValueChange={handleTabChange}>
+                {tabs.map((tab) => (
+                  <TabsContent key={tab.value} value={tab.value}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {filterProjects(tab.value).map((project) => (
+                        <a
+                          key={project.title}
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`block transition-all duration-500 ${
+                            isAnimating
+                              ? "transform scale-0 opacity-0"
+                              : "transform scale-100 opacity-100"
+                          }`}
+                        >
+                          <Card className="w-full group transition-transform transform hover:scale-105">
+                            <CardHeader>
+                              <img
+                                src={project.img}
+                                alt={project.title}
+                                className="w-full h-[200px] object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                              />
+                              <CardTitle>{project.title}</CardTitle>
+                              <CardDescription>
+                                {project.subtitle}
+                              </CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-gray-700">
+                                {project.description}
+                              </p>
+                              <div className="flex flex-wrap gap-2 mt-2">
+                                {project.type.map((t, index) => (
+                                  <span
+                                    key={index}
+                                    className={`inline-block px-3 py-1 text-sm font-semibold rounded-full text-white ${
+                                      data.type_project.find(
+                                        (tp) => tp.title === t
+                                      )?.color
+                                    }`}
+                                  >
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                              <div className="flex flex-wrap gap-2 mt-2">
+                                {project.tech.map((tech, index) => (
+                                  <span
+                                    key={index}
+                                    className="inline-block px-3 py-1 text-sm font-semibold bg-gray-200 rounded-full text-gray-700"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </a>
+                      ))}
+                    </div>
+                  </TabsContent>
+                ))}
+              </Tabs>
+            </SlideInRight>
           </div>
         </div>
       )}
     </div>
   );
-}
+};
 
-export default Allprojects;
+export default Allprojects; 

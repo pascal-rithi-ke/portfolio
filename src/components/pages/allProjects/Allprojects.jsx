@@ -12,7 +12,6 @@ import { data } from "../../../data/info";
 import SlideInTop from "../../animation/SlideInTop";
 import SlideInLeft from "../../animation/SlideInLeft";
 import SlideInRight from "../../animation/SlideInRight";
-import Contact from "../../contacts.jsx";
 
 const Allprojects = () => {
   const [selectedTech, setSelectedTech] = useState([]);
@@ -113,7 +112,7 @@ const Allprojects = () => {
       </SlideInTop>
 
       {isContentVisible && (
-        <div className="pt-20 md:pt-0">
+        <div className="pt-20 md:pt-0 overflow-hidden">
           {/* Vue Web */}
           <div className="hidden lg:block mb-6">
             <SlideInTop>

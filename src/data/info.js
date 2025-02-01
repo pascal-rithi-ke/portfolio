@@ -1,6 +1,14 @@
 export const data = {
     "project":[
         {
+            title: "E-Commerce",
+            description: "Create a basic E-commerce website",
+            type: ["Web"],
+            tech: ["VueJS", "Laravel"],
+            img: "/project/ecommerce-2.png",
+            link: "https://vapostore-projet.vercel.app/",
+        },
+        {
             title: "Weapon detection",
             description: "Create a weapon detection on a video or by image",
             type: ["IA"],
@@ -294,6 +302,13 @@ export const data = {
             "type":"Framework"
         },
         {
+            "title":"VueJS",
+            "type":"Framework"
+        },
+        {
+            "title":"Laravel",
+            "type":"Framework"
+        },        {
             "title":"Symfony",
             "type":"Framework"
         },

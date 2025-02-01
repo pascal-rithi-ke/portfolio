@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { data } from "@/data/info";
 
 import DimplomaIcon from "@/components/icons/Diploma.jsx";
 import BriefcaseIcon from "@/components/icons/Briefcase.jsx";
 
+import useIsMobile from "../../modular/useIsMobile";
+
 function Experience() {
   const { education, experience } = data;
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Fonction pour vérifier si l'écran est mobile ou non
-  const checkIfMobile = () => {
-    if (window.innerWidth <= 768) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    checkIfMobile(); // Initial check
-    window.addEventListener("resize", checkIfMobile); // Listener pour les changements de taille
-
-    // Cleanup listener on unmount
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
-  }, []);
+  const isMobile = useIsMobile();
 
   // Associer les données par ID et trier par année
   const allItems = education.map((edu) => {

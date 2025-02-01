@@ -1,12 +1,24 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+
+import useIsMobile  from '../modular/useIsMobile';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const isMobile = useIsMobile();
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const location = useLocation();
+  let title = location.pathname.split("/")[1];
+  if (title) {
+    title = title[0].toUpperCase() + title.slice(1).toLowerCase();
+  } else {
+    title = "Home";
+  }  
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
@@ -15,6 +27,11 @@ export default function Navbar() {
           menuOpen ? "md:shadow-none" : "shadow-custom"
         } md:shadow-none`}
       >
+        {isMobile && !menuOpen && (
+          <div className="flex-1 text-left">
+            <p className="text-xl font-bold text-black">{title}</p>
+          </div>
+        )}
         <ul className="hidden md:flex space-x-10 scale-75">
           <li>
             <NavLink

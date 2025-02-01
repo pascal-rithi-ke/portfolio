@@ -33,7 +33,7 @@ const Introduction = () => {
     ));
 
   return (
-    <div className="flex flex-col md:justify-center md:items-center min-h-screen space-y-6 md:space-y-8 md:p-6 no-scrollbar transform scale-75 md:p-4">
+    <div className="flex flex-col md:justify-center md:items-center min-h-screen space-y-6 md:space-y-8 md:p-6 no-scrollbar transform scale-75 md:p-4 overflow-x-hidden">
       {/* Animation de bienvenue */}
       <div className="w-full">
         <SlideTop>

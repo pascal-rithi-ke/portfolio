@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
-
-function isMobile() {
-    return window.innerWidth <= 768;
-}
+import useIsMobile  from '../modular/useIsMobile';
 
 function DiplomaIcon() {
     const [color, setColor] = useState('#FFFFFF');
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         function handleResize() {
-            setColor(isMobile() ? '#000000' : '#FFFFFF');
+            if (isMobile) {
+                setColor('#000000');
+            } else {
+                setColor('#FFFFFF');
+            }
         }
 
         window.addEventListener('resize', handleResize);

@@ -45,7 +45,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative sm:overflow-hidden">
       {/* Introduction Section */}
       <div
         id="introduction"

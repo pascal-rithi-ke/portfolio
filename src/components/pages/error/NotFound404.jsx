@@ -23,16 +23,16 @@ const NotFound404 = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="text-center bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
+    <div className="flex items-center justify-center min-h-screen px-4">
+      <div className="text-center bg-white p-8 rounded-lg shadow-lg max-w-md">
+        <h1 className="text-4xl font-bold mb-4">404 · Page not found</h1>
         <p className="text-lg mb-4">The page you are looking for does not exist.</p>
-        <p className="text-lg mb-4">Redirecting to home in {count} seconds...</p>
+        <p className="text-lg mb-4 text-gray-600">Redirecting to home in {count}s…</p>
         <button 
           onClick={handleRedirect} 
-          className="mt-4 px-4 py-2 bg-black text-white rounded"
+          className="mt-4 px-6 py-3 rounded-lg border border-black bg-black text-white font-semibold hover:bg-gray-500 hover:border-gray-500 transition-colors duration-300"
         >
-          Go to Home Now
+          Back to home
         </button>
       </div>
     </div>

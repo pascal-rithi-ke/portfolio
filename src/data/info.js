@@ -1,18 +1,18 @@
 export const data = {
     "project":[
         {
-            title: "E-Commerce",
-            description: "Create a basic E-commerce website",
+            title: "Vapostore",
+            description: "Basic e-commerce website with a product catalog",
             type: ["Web"],
             tech: ["VueJS", "Laravel"],
             img: "/project/ecommerce-2.png",
             link: "https://vapostore-projet.vercel.app/",
         },
         {
-            title: "Weapon detection",
+            title: "Weapon Detection",
             featured: true,
-            description: "Create a weapon detection on a video or by image",
-            type: ["IA"],
+            description: "Weapon detection in images and videos using computer vision",
+            type: ["AI"],
             tech: ["Python", "TensorFlow", "Keras", "OpenCV", "YOLOv3", "Streamlit"],
             img: "/project/weapon_dectection.png",
             imgFit: "contain",
@@ -21,24 +21,24 @@ export const data = {
         {
             title: "Wasteland Warrior",
             featured: true,
-            description: "Interactive storytelling games with multiple choices",
+            description: "Interactive storytelling game with multiple-choice paths",
             type: ["Mobile", "Web"],
             tech: ["React Native", "Expo", "JavaScript"],
             img: "https://raw.githubusercontent.com/pascal-rithi-ke/Wasteland_Warrior/master/front/assets/game/Avec_Chien.png",
             link: "https://github.com/pascal-rithi-ke/Wasteland_Warrior",
         },
         {
-            title: "ChatBot disease detection",
-            description: "Create a chatbot to detect diseases",
-            type: ["IA", "Web"],
+            title: "Disease Detection Chatbot",
+            description: "Chatbot that detects possible diseases from described symptoms",
+            type: ["AI", "Web"],
             tech: ["Python", "spaCy", "NLTK", "scikit-learn", "Flask", "React", "Tailwind"],
             img: "/project/chatbot_medical.jpeg",
             link: "https://github.com/pascal-rithi-ke/detection_maladie",
         },
         {
-            title: "Data architecture",
+            title: "Data Architecture",
             featured: true,
-            description: "Retrieve real-time data and store it in a NoSQL database.",
+            description: "Real-time data pipeline that streams data into a NoSQL database",
             type: ["Big Data"],
             tech: ["Python", "Kafka", "Cassandra", "Docker"],
             img: "/project/big_data.jpg",
@@ -47,7 +47,7 @@ export const data = {
         },
         {
             title: "E-motion",
-            description: "Create a E-commerce website with a login and payment system",
+            description: "E-commerce website with user accounts and Stripe payments",
             type: ["Web", "Payment System"],
             tech: ["Symfony", "PHP", "Twig", "Stripe", "SQL"],
             img: "/project/Stripe_logo.png",
@@ -55,25 +55,25 @@ export const data = {
             link: "https://github.com/Dalsaba/E-Motion/",
         },
         {
-            title: "E-commerce",
-            description: "Create a CRUD E-commerce website with a login system for users",
+            title: "Symfony E-commerce",
+            description: "CRUD e-commerce website with user authentication",
             type: ["Web"],
             tech: ["Symfony", "PHP", "Twig", "SQL"],
             img: "https://www.noiise.com/wp-content/uploads/2023/11/definition-ecommerce.jpg",
             link: "https://github.com/bflorestal/e-commerce",
         },
         {
-            title: "Pokedex",
-            description: "Create a Pokedex with a SearchBar to display more informations",
+            title: "Pokédex",
+            description: "Pokédex with a search bar to browse Pokémon details",
             type: ["Web"],
             tech: ["React", "JavaScript", "Sass", "PokéAPI"],
-            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png",
+            img: "/project/pokeball.svg",
             imgFit: "contain",
             link: "https://github.com/pascal-rithi-ke/pokedex",
         },
         {
             title: "MangaInfo",
-            description: "Simple application to display manga information",
+            description: "Mobile app to browse manga information",
             type: ["Mobile", "Web"],
             tech: ["React Native", "Expo", "MongoDB"],
             img: "https://i.pinimg.com/736x/56/93/dc/5693dcd41e4d36d6ab97a33a53c3a381.jpg",
@@ -89,8 +89,8 @@ export const data = {
             link: "https://github.com/pascal-rithi-ke/portfolio",
         },
         {
-            title: "RealTime Chat",
-            description: "Realtime chat application, can be used on web & desktop with electron",
+            title: "Real-time Chat",
+            description: "Real-time chat application for web and desktop (Electron)",
             type: ["Web", "Desktop"],
             tech: ["Node.js", "Express", "Socket.io", "Electron"],
             img: "https://miro.medium.com/max/700/1*DfmKdD8EwFzmpapP3lWj5Q.png",
@@ -99,7 +99,7 @@ export const data = {
         },
         {
             title: "Calendar",
-            description: "Create a todolist that displays tasks on a calendar",
+            description: "To-do list with tasks displayed on a calendar",
             type: ["Web"],
             tech: ["Node.js", "Express", "MongoDB"],
             img: "https://thumbs.dreamstime.com/b/vecteur-de-symbole-bloc-notes-contour-d-un-avec-stylo-dans-l-avant-sur-le-fond-blanc-format-142213550.jpg",
@@ -108,7 +108,7 @@ export const data = {
         },
         {
             title: "SlowMotion",
-            description: "Create a video game review application with React",
+            description: "Video game review application",
             type: ["Web"],
             tech: ["React", "Bootstrap", "Python", "Flask", "MongoDB", "Docker"],
             img: "https://explora.saint-etienne.fr/wp-content/uploads/2021/01/jeux-video-1280x1024.jpg",
@@ -116,7 +116,7 @@ export const data = {
         },
         {
             title: "La Bibliothèque",
-            description: "Online library with a book reservation and a login system for users",
+            description: "Online library with book reservations and user accounts",
             type: ["Web"],
             tech: ["PHP", "SQL"],
             img: "https://www.freeiconspng.com/thumbs/book-icon/book-icon-black-good-galleries--24.jpg",
@@ -128,8 +128,8 @@ export const data = {
         {
             id: "3",
             title:"SNB Consulting",
-            subtitle: "Fullstack Developer",
-            description: "Freelance, development of web and mobile applications for clients",
+            subtitle: "Fullstack Developer · Freelance",
+            description: "Development of web and mobile applications for clients",
             missions: [
                 {
                     title: "RAPS Fitness",
@@ -148,8 +148,8 @@ export const data = {
         {
             id: "2",
             title:"CultureBD (ZooLeMag)",
-            subtitle: "Fullstack Developer",
-            description: "Apprenticeship, maintenance of the website and development of new features",
+            subtitle: "Fullstack Developer · Apprenticeship",
+            description: "Maintenance of the ZooLeMag website and back-office, development of new features",
             img: "https://zoolemag.com/img/brand/logo.png",
             date: "Sept 2022 - Sept 2024",
             year : "2024",
@@ -157,8 +157,8 @@ export const data = {
         {
             id: "1",
             title:"Safran Aircraft Engines",
-            subtitle: "SharePoint and Python",
-            description: "Apprenticeship: Manage department SharePoints, develop Python solutions.",
+            subtitle: "SharePoint Support & Python · Apprenticeship",
+            description: "SharePoint user support for the department and Python tools to optimize workflows",
             img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg",
             date: "Oct 2021 - Sept 2022",
             year : "2022",
@@ -166,16 +166,16 @@ export const data = {
         {
             id: "0",
             title:"Okatro",
-            subtitle: "PHP - IIS",
-            description: "Internship, create an intranet for a middle school using PHP and IIS",
+            subtitle: "Web Developer · Internship",
+            description: "Intranet for a middle school built with PHP and IIS",
             img: "https://media.licdn.com/dms/image/v2/C560BAQGo-KExUmlWhA/company-logo_200_200/company-logo_200_200/0/1630614927626?e=2147483647&v=beta&t=04TIGd8jI371yuNkhAR4SCNuOJSsrO8ktDn1FsAS2-A",
             date: "Feb 2021 - May 2021",
             year : "2021"
         },
         {
             title:"Bloasis",
-            subtitle: "Web consultant",
-            description: "Internship, web consulting to create a room booking website",
+            subtitle: "Web Consultant · Internship",
+            description: "Web consulting for a room booking website",
             img: "https://cnstlltn.com/300x200/f191cd7b-0e94-47f6-8625-05c7be0d8bb1/logo+bloasis+fond+orange+canva.png",
             date : "May 2020 - Jun 2020",
             year : "2020"
@@ -184,9 +184,9 @@ export const data = {
     "education":[
         {
             id: "2",
-            title:"Master Dev Big Data IA",
+            title:"Master's Degree in Development, Big Data & AI",
             subtitle: "Master",
-            description: "Master Dev Big Data IA at IPSSI",
+            description: "Master's Degree in Development, Big Data & AI at IPSSI",
             date: "2022 - 2024",
             education: "education",
             year : "2022",
@@ -195,9 +195,9 @@ export const data = {
         },
         {
             id: "1",
-            title:"Bachelor Information Systems Administrator",
+            title:"Bachelor's Degree in Information Systems Administration",
             subtitle: "Bachelor",
-            description: "Bachelor Information Systems Administrator at IPSSI",
+            description: "Bachelor's Degree in Information Systems Administration at IPSSI",
             date: "2021 - 2022",
             education: "education",
             year : "2021",
@@ -206,9 +206,9 @@ export const data = {
         },
         {
             id: "0",
-            title:"BTS SIO option SLAM",
+            title:"BTS SIO, Software Development (SLAM)",
             subtitle: "BTS",
-            description: "BTS SIO option SLAM at IPSSI",
+            description: "BTS SIO, Software Development (SLAM) at IPSSI",
             date: "2019 - 2021",
             education: "education",
             year : "2019",
@@ -248,29 +248,11 @@ export const data = {
         { title:"AWS", img: "/cloud/aws.png" },
     ],
     "type_project":[
-        {
-            title:"Mobile",
-            color : "bg-black"
-        },
-        {
-            title:"Web",
-            color : "bg-black"
-        },
-        {
-            title:"Desktop",
-            color : "bg-black"
-        },
-        {
-            title:"IA",
-            color : "bg-black"
-        },
-        {
-            title:"Big Data",
-            color : "bg-black"
-        },
-        {
-            title:"Payment System",
-            color : "bg-black"
-        },
+        { title: "Mobile" },
+        { title: "Web" },
+        { title: "Desktop" },
+        { title: "AI" },
+        { title: "Big Data" },
+        { title: "Payment System" },
     ]
 }

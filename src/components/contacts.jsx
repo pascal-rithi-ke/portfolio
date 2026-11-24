@@ -23,8 +23,8 @@ const contacts = [
 export function Contacts() {
   return (
     <Reveal>
-      <div className="mt-20 pb-12 px-6 md:h-auto">
-        <h2 className="text-2xl font-bold mb-6">Contact</h2>
+      <div className="px-6">
+        <h2 className="text-3xl font-bold mb-8">Contact</h2>
         <ul className="flex flex-col items-center space-y-3">
           {contacts.map(({ label, value, href, Icon, external }) => (
             <li key={label} className="flex items-center gap-2">

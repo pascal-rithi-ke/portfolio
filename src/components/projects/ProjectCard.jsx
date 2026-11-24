@@ -7,7 +7,7 @@ const isGithub = (link) => link.includes("github.com");
 /** Carte projet partagée entre la page d'accueil et la page Projects. */
 export default function ProjectCard({ project }) {
   return (
-    <article className="group flex flex-col h-full bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+    <article className="group flex flex-col h-full bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-gray-600 motion-reduce:hover:translate-y-0">
       <div className="aspect-video bg-white border-b border-gray-100 overflow-hidden">
         <img
           src={project.img}

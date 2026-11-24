@@ -78,7 +78,7 @@ function HomePage() {
       <div
         id="contacts"
         ref={(el) => (sectionRefs.current[3] = el)}
-        className="md:h-screen flex items-center justify-center"
+        className="py-16 md:py-24 min-h-[50vh] flex items-center justify-center"
       >
         <Contacts />
       </div>

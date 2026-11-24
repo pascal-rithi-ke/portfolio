@@ -59,7 +59,7 @@ function HomePage() {
       <div
         id="experience"
         ref={(el) => (sectionRefs.current[1] = el)}
-        className="md:h-[200vh] flex items-center justify-center"
+        className="py-16 md:py-24 flex items-center justify-center"
       >
         <Experience />
       </div>

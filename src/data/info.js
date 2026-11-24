@@ -115,41 +115,46 @@ export const data = {
     ],
     "experience":[
         {
-            title:"CultureBD",
-            subtitle: "Developer Fullstack PHP/JS/SQL",
+            id: "3",
+            title:"SNB Consulting",
+            subtitle: "Fullstack Developer",
+            description: "Freelance, development of web and mobile applications for clients",
+            date: "May 2025 - Aug 2026",
+            year : "2025",
+        },
+        {
+            id: "2",
+            title:"CultureBD (ZooLeMag)",
+            subtitle: "Fullstack Developer",
             description: "Apprenticeship, maintenance of the website and development of new features",
             img: "https://zoolemag.com/img/brand/logo.png",
             date: "Sept 2022 - Sept 2024",
-            id: "2",
             year : "2024",
-            yearStart : "2022"
         },
         {
+            id: "1",
             title:"Safran Aircraft Engines",
-            subtitle: "Developer SharePoint and Python",
+            subtitle: "SharePoint and Python",
             description: "Apprenticeship: Manage department SharePoints, develop Python solutions.",
             img: "https://pbs.twimg.com/profile_images/920279256101478405/xrgf2ci8_400x400.jpg",
             date: "Oct 2021 - Sept 2022",
-            id: "1",
             year : "2022",
-            yearStart : "2021"
         },
         {
+            id: "0",
             title:"Okatro",
             subtitle: "PHP - IIS",
             description: "Internship, create an intranet for a middle school using PHP and IIS",
             img: "https://media.licdn.com/dms/image/v2/C560BAQGo-KExUmlWhA/company-logo_200_200/company-logo_200_200/0/1630614927626?e=2147483647&v=beta&t=04TIGd8jI371yuNkhAR4SCNuOJSsrO8ktDn1FsAS2-A",
-            date: "Feb 2021 -  May 2021",
-            id: "0",
+            date: "Feb 2021 - May 2021",
             year : "2021"
         },
         {
             title:"Bloasis",
             subtitle: "Web consultant",
-            description: "InternShip, web consulting to creat a website booking rooms",
+            description: "Internship, web consulting to create a room booking website",
             img: "https://cnstlltn.com/300x200/f191cd7b-0e94-47f6-8625-05c7be0d8bb1/logo+bloasis+fond+orange+canva.png",
             date : "May 2020 - Jun 2020",
-            id: "0",
             year : "2020"
         }
     ],
@@ -159,7 +164,7 @@ export const data = {
             title:"Master Dev Big Data IA",
             subtitle: "Master",
             description: "Master Dev Big Data IA at IPSSI",
-            date: "Sept 2022 - Sept 2024",
+            date: "2022 - 2024",
             education: "education",
             year : "2022",
             yearEnd : "2024",
@@ -167,10 +172,10 @@ export const data = {
         },
         {
             id: "1",
-            title:"Bachelor Fullstack DevOps",
+            title:"Bachelor Information Systems Administrator",
             subtitle: "Bachelor",
-            description: "Bachelor Fullstack DevOps at IPSSI",
-            date: "Oct 2021 - Sept 2022",
+            description: "Bachelor Information Systems Administrator at IPSSI",
+            date: "2021 - 2022",
             education: "education",
             year : "2021",
             yearEnd : "2022",
@@ -181,7 +186,7 @@ export const data = {
             title:"BTS SIO option SLAM",
             subtitle: "BTS",
             description: "BTS SIO option SLAM at IPSSI",
-            date: "Sep 2019 -  Jun 2021",
+            date: "2019 - 2021",
             education: "education",
             year : "2019",
             yearEnd : "2021",
@@ -189,74 +194,35 @@ export const data = {
         }
     ],
     "tech_lang":[
-        {
-            title:"JS",
-            img: "/language-prog/js.png"
-        },
-        {
-            title:"PHP",
-            img: "/language-prog/php.png"
-        },
-        {
-            title:"Python",
-            img: "/language-prog/python.png"
-        },
+        { title:"TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" },
+        { title:"Python", img: "/language-prog/python.png" },
+        { title:"PHP", img: "/language-prog/php.png" },
+        { title:"Go", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/go/go-original-wordmark.svg" },
     ],
     "tech_framework":[
-        {
-            title:"React / React Native",
-            img: "/framework/react.png"
-        },
-        {
-            title:"Symfony",
-            img: "/framework/symfony.png"
-        },
-        {
-            title:"Tailwind",
-            img: "/framework/tailwind.png"
-        },
+        { title:"React / React Native", img: "/framework/react.png" },
+        { title:"Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nextjs/nextjs-original.svg" },
+        { title:"Laravel", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/laravel/laravel-original.svg" },
+        { title:"Symfony", img: "/framework/symfony.png" },
+        { title:"Django", img: "/framework/django.jpg" },
     ],
     "tech_Database":[
-        {
-            title:"SQL",
-            img: "/database/sql.png"
-        },
-        {
-            title:"MongoDB",
-            img: "https://w7.pngwing.com/pngs/216/509/png-transparent-mongodb-node-js-npm-open-source-model-angularjs-leaf-leaf-logo-grass.png"
-        },
+        { title:"PostgreSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" },
+        { title:"MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" },
+        { title:"MongoDB", img: "https://w7.pngwing.com/pngs/216/509/png-transparent-mongodb-node-js-npm-open-source-model-angularjs-leaf-leaf-logo-grass.png" },
+        { title:"Redis", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redis/redis-original.svg" },
     ],
     "tech_tool":[
-        {
-            title:"GitHub",
-            img: "/tools/github.png"
-        },
-        {
-            title:"Bitbucket",
-            img: "/tools/bitbucket.jpg"
-        },
-        {
-            title:"Jira",
-            img: "/tools/jira.png"
-        },
-        {
-            title:"Docker",
-            img: "/tools/docker.png"
-        },
+        { title:"Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" },
+        { title:"Docker", img: "/tools/docker.png" },
+        { title:"GitLab CI", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/gitlab/gitlab-original.svg" },
+        { title:"Firebase", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/firebase/firebase-original.svg" },
+        { title:"Jira", img: "/tools/jira.png" },
+        { title:"Bitbucket", img: "/tools/bitbucket.jpg" },
+        { title:"Trello", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/trello/trello-original.svg" },
     ],
     "tech_cloud":[
-        {
-            title:"AWS",
-            img: "/cloud/aws.png"
-        },
-        {
-            title:"GCP",
-            img: "/cloud/gcp.png"
-        },
-        {
-            title:"Azure",
-            img: "/cloud/azure.png"
-        },
+        { title:"AWS", img: "/cloud/aws.png" },
     ],
     "type_project":[
         {

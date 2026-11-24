@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import Introduction from './Introduction.jsx';
 import Experience from './Experience.jsx';
+import FeaturedProjects from './FeaturedProjects.jsx';
 import Contacts from "@/components/contacts.jsx";
 
 function HomePage() {
@@ -64,10 +65,19 @@ function HomePage() {
         <Experience />
       </div>
 
+      {/* Projects Section */}
+      <div
+        id="projects"
+        ref={(el) => (sectionRefs.current[2] = el)}
+        className="py-16 md:py-24 flex items-center justify-center"
+      >
+        <FeaturedProjects />
+      </div>
+
       {/* Contacts Section */}
       <div
         id="contacts"
-        ref={(el) => (sectionRefs.current[2] = el)}
+        ref={(el) => (sectionRefs.current[3] = el)}
         className="md:h-screen flex items-center justify-center"
       >
         <Contacts />
@@ -101,13 +111,25 @@ function HomePage() {
 
         <div className="group relative">
           <Link
+            to="#projects"
+            className={`block w-3 h-3 ${
+              activeSection === "projects" ? "bg-black" : "bg-gray-500"
+            } rounded-full transition-colors duration-300`}
+          ></Link>
+          <span className="absolute right-6 bottom-1/2 transform translate-y-1/2 opacity-0 group-hover:opacity-100 bg-black text-white text-sm px-2 py-1 rounded-md transition-opacity duration-300">
+            Projects
+          </span>
+        </div>
+
+        <div className="group relative">
+          <Link
             to="#contacts"
             className={`block w-3 h-3 ${
               activeSection === "contacts" ? "bg-black" : "bg-gray-500"
             } rounded-full transition-colors duration-300`}
           ></Link>
           <span className="absolute right-6 bottom-1/2 transform translate-y-1/2 opacity-0 group-hover:opacity-100 bg-black text-white text-sm px-2 py-1 rounded-md transition-opacity duration-300">
-            Contacts
+            Contact
           </span>
         </div>
       </div>

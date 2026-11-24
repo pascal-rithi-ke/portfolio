@@ -1,77 +1,48 @@
-import React, { useState, useEffect } from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import FormContact from "./form/formContact";
+import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 
-import SlideBottom from "./animation/SlideInBottom";
+import Reveal from "./animation/Reveal";
 
-export function Contacts({ isVisible }) {
-  const [startAnimation, setStartAnimation] = useState(false);
-  const [key, setKey] = useState(0); // Utilisé pour forcer la réinitialisation de l'animation
+const contacts = [
+  {
+    label: "Email",
+    value: "pascal.rithi@gmail.com",
+    href: "mailto:pascal.rithi@gmail.com",
+    Icon: FiMail,
+  },
+  {
+    label: "GitHub",
+    value: "pascal-rithi-ke",
+    href: "https://github.com/pascal-rithi-ke",
+    Icon: FaGithub,
+    external: true,
+  },
+];
 
-  useEffect(() => {
-    if (isVisible) {
-      setStartAnimation(true);
-      setKey((prevKey) => prevKey + 1); // Forcer la réinitialisation de l'animation
-    } else {
-      setStartAnimation(false);
-    }
-  }, [isVisible]);
-
+export function Contacts() {
   return (
-    <SlideBottom key={key} isVisible={startAnimation}>
+    <Reveal>
       <div className="mt-20 pb-12 px-6 md:h-auto">
-        <h2 className="text-2xl font-bold mb-6">Contacts</h2>
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              <SlideBottom key={key} isVisible={startAnimation}>
-                Get in touch ?
-              </SlideBottom>
-            </AccordionTrigger>
-            <AccordionContent>
-              <ul className="flex flex-col items-start space-y-2">
-                <li>
-                  <span className="font-bold">Email :</span>
-                  <a
-                    href="mailto:pascal.rithi@gmail.com"
-                    className="ml-2 relative inline-block text-gray-500 group hover:text-black"
-                  >
-                    pascal.rithi@gmail.com
-                    <span
-                      className="absolute left-1/2 bottom-0 h-[1px] w-0 bg-black transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full"
-                    ></span>
-                  </a>
-                </li>
-                <li>
-                  <span className="font-bold">Github :</span>
-                  <a
-                    href="https://github.com/pascal-rithi-ke"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-2 relative inline-block text-gray-500 group hover:text-black"
-                  >
-                    pascal-rithi-ke
-                    <span
-                      className="absolute left-1/2 bottom-0 h-[1px] w-0 bg-black transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full"
-                    ></span>
-                  </a>
-                </li>
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>
-              <SlideBottom key={key} isVisible={startAnimation}>
-                Send a message by email ?
-              </SlideBottom>
-            </AccordionTrigger>
-            <AccordionContent>
-              <FormContact />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <h2 className="text-2xl font-bold mb-6">Contact</h2>
+        <ul className="flex flex-col items-center space-y-3">
+          {contacts.map(({ label, value, href, Icon, external }) => (
+            <li key={label} className="flex items-center gap-2">
+              <Icon className="w-5 h-5" aria-hidden="true" />
+              <span className="font-bold">{label} :</span>
+              <a
+                href={href}
+                {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                className="relative inline-block text-gray-800 group hover:text-gray-500 transition-colors duration-300"
+              >
+                {value}
+                <span className="absolute left-1/2 bottom-0 h-[2px] w-0 bg-gray-500 transition-all duration-300 ease-out group-hover:left-0 group-hover:w-full"></span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </SlideBottom>
+    </Reveal>
   );
 }
 

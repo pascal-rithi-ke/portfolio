@@ -10,17 +10,20 @@ export const data = {
         },
         {
             title: "Weapon detection",
+            featured: true,
             description: "Create a weapon detection on a video or by image",
             type: ["IA"],
-            tech: ["Python", "YOLOv3"],
+            tech: ["Python", "TensorFlow", "Keras", "OpenCV", "YOLOv3", "Streamlit"],
             img: "/project/weapon_dectection.png",
+            imgFit: "contain",
             link: "https://github.com/pascal-rithi-ke/detection_arme",
         },
         {
             title: "Wasteland Warrior",
+            featured: true,
             description: "Interactive storytelling games with multiple choices",
             type: ["Mobile", "Web"],
-            tech: ["React Native"],
+            tech: ["React Native", "Expo", "JavaScript"],
             img: "https://raw.githubusercontent.com/pascal-rithi-ke/Wasteland_Warrior/master/front/assets/game/Avec_Chien.png",
             link: "https://github.com/pascal-rithi-ke/Wasteland_Warrior",
         },
@@ -28,31 +31,34 @@ export const data = {
             title: "ChatBot disease detection",
             description: "Create a chatbot to detect diseases",
             type: ["IA", "Web"],
-            tech: ["Python", "React", "Spacy"],
+            tech: ["Python", "spaCy", "NLTK", "scikit-learn", "Flask", "React", "Tailwind"],
             img: "/project/chatbot_medical.jpeg",
             link: "https://github.com/pascal-rithi-ke/detection_maladie",
         },
         {
             title: "Data architecture",
+            featured: true,
             description: "Retrieve real-time data and store it in a NoSQL database.",
             type: ["Big Data"],
-            tech: ["Kafka", "Cassandra", "Docker"],
+            tech: ["Python", "Kafka", "Cassandra", "Docker"],
             img: "/project/big_data.jpg",
+            imgFit: "contain",
             link: "https://github.com/AdrienMirabelle/Projet_Architecture_Data",
         },
         {
             title: "E-motion",
             description: "Create a E-commerce website with a login and payment system",
             type: ["Web", "Payment System"],
-            tech: ["Symfony", "Stripe", "PHP", "SQL"],
+            tech: ["Symfony", "PHP", "Twig", "Stripe", "SQL"],
             img: "/project/Stripe_logo.png",
+            imgFit: "contain",
             link: "https://github.com/Dalsaba/E-Motion/",
         },
         {
             title: "E-commerce",
             description: "Create a CRUD E-commerce website with a login system for users",
             type: ["Web"],
-            tech: ["Symfony", "PHP", "SQL"],
+            tech: ["Symfony", "PHP", "Twig", "SQL"],
             img: "https://www.noiise.com/wp-content/uploads/2023/11/definition-ecommerce.jpg",
             link: "https://github.com/bflorestal/e-commerce",
         },
@@ -60,47 +66,51 @@ export const data = {
             title: "Pokedex",
             description: "Create a Pokedex with a SearchBar to display more informations",
             type: ["Web"],
-            tech: ["React", "API"],
+            tech: ["React", "JavaScript", "Sass", "PokéAPI"],
             img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png",
+            imgFit: "contain",
             link: "https://github.com/pascal-rithi-ke/pokedex",
         },
         {
             title: "MangaInfo",
             description: "Simple application to display manga information",
             type: ["Mobile", "Web"],
-            tech: ["React Native", "MongoDB"],
+            tech: ["React Native", "Expo", "MongoDB"],
             img: "https://i.pinimg.com/736x/56/93/dc/5693dcd41e4d36d6ab97a33a53c3a381.jpg",
             link: "https://github.com/pascal-rithi-ke/MangaInfo",
         },
         {
             title: "Portfolio",
-            description: "Create and deploy my portfolio with git pages",
+            description: "Design and deploy my personal portfolio",
             type: ["Web"],
-            tech: ["React"],
+            tech: ["React", "Vite", "Tailwind"],
             img: "https://png.pngitem.com/pimgs/s/533-5339521_briefcase-hd-png-download.png",
+            imgFit: "contain",
             link: "https://github.com/pascal-rithi-ke/portfolio",
         },
         {
             title: "RealTime Chat",
             description: "Realtime chat application, can be used on web & desktop with electron",
             type: ["Web", "Desktop"],
-            tech: ["ExpressJS", "Socket.io", "Electron"],
+            tech: ["Node.js", "Express", "Socket.io", "Electron"],
             img: "https://miro.medium.com/max/700/1*DfmKdD8EwFzmpapP3lWj5Q.png",
+            imgFit: "contain",
             link: "https://github.com/pascal-rithi-ke/socket.io",
         },
         {
             title: "Calendar",
             description: "Create a todolist that displays tasks on a calendar",
             type: ["Web"],
-            tech: ["ExpressJS", "MongoDB"],
+            tech: ["Node.js", "Express", "MongoDB"],
             img: "https://thumbs.dreamstime.com/b/vecteur-de-symbole-bloc-notes-contour-d-un-avec-stylo-dans-l-avant-sur-le-fond-blanc-format-142213550.jpg",
+            imgFit: "contain",
             link: "https://github.com/pascal-rithi-ke/calendar",
         },
         {
             title: "SlowMotion",
             description: "Create a video game review application with React",
             type: ["Web"],
-            tech: ["MongoDB", "Python", "Docker"],
+            tech: ["React", "Bootstrap", "Python", "Flask", "MongoDB", "Docker"],
             img: "https://explora.saint-etienne.fr/wp-content/uploads/2021/01/jeux-video-1280x1024.jpg",
             link: "https://github.com/pascal-rithi-ke/slowmotion/tree/master/jeuxvideo",
         },
@@ -110,6 +120,7 @@ export const data = {
             type: ["Web"],
             tech: ["PHP", "SQL"],
             img: "https://www.freeiconspng.com/thumbs/book-icon/book-icon-black-good-galleries--24.jpg",
+            imgFit: "contain",
             link: "https://github.com/pascal-rithi-ke/Biblio",
         },
     ],
@@ -119,6 +130,18 @@ export const data = {
             title:"SNB Consulting",
             subtitle: "Fullstack Developer",
             description: "Freelance, development of web and mobile applications for clients",
+            missions: [
+                {
+                    title: "RAPS Fitness",
+                    date: "Oct 2025 - Aug 2026",
+                    description: "Multi-site gym management SaaS: web ERP for staff and iOS/Android app for members",
+                },
+                {
+                    title: "PLV Tracking",
+                    date: "May 2025 - Oct 2025",
+                    description: "Intervention planning and tracking platform with role-based dashboards",
+                },
+            ],
             date: "May 2025 - Aug 2026",
             year : "2025",
         },
@@ -248,59 +271,6 @@ export const data = {
         {
             title:"Payment System",
             color : "bg-black"
-        },
-    ],
-    "type_techo":[
-        {
-            "title":"Python",
-            "type":"Language"
-        },
-        {
-            "title":"PHP",
-            "type":"Language"
-        },
-        {
-            "title":"React",
-            "type":"Framework"
-        },
-        {
-            "title":"React Native",
-            "type":"Framework"
-        },
-        {
-            "title":"VueJS",
-            "type":"Framework"
-        },
-        {
-            "title":"Laravel",
-            "type":"Framework"
-        },        {
-            "title":"Symfony",
-            "type":"Framework"
-        },
-        {
-            "title":"SQL",
-            "type":"Database"
-        },
-        {
-            "title":"MongoDB",
-            "type":"Database"
-        },
-        {
-            "title":"Docker",
-            "type":"Tool"
-        },
-        {
-            "title": "Cassandra",
-            "type": "Database"
-        },
-        {
-            "title": "Spacy",
-            "type": "Library"
-        },
-        {
-            "title": "ExpressJS",
-            "type": "Framework"
         },
     ]
 }

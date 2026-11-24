@@ -1,107 +1,95 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { FiMail } from "react-icons/fi";
 import SlideLeft from "../../animation/SlideInLeft";
 import SlideRight from "../../animation/SlideInRight";
-import SlideTop from "../../animation/SlideInTop";
 import SlideBottom from "../../animation/SlideInBottom";
 import photo from "../../../assets/photo.jpg";
 import { data } from "../../../data/info";
 
+const skillGroups = [
+  { label: "Languages", key: "tech_lang" },
+  { label: "Frameworks", key: "tech_framework" },
+  { label: "Databases", key: "tech_Database" },
+];
+
 const Introduction = () => {
-  const [activeTooltip, setActiveTooltip] = useState(null);
-  const timeoutRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest('.tooltip-container')) {
-        setActiveTooltip(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      clearTimeout(timeoutRef.current);
-    };
-  }, []);
-
-  const renderParagraphs = (texts) =>
-    texts.map((text, index) => (
-      <div key={index} className="p-4 w-full">
-        <p className="text-black text-left text-lg md:text-xl">
-          {text}
-        </p>
-      </div>
-    ));
-
   return (
-    <div className="flex flex-col md:justify-center md:items-center min-h-screen space-y-6 md:space-y-8 md:p-6 no-scrollbar transform scale-75 md:p-4 overflow-x-hidden">
-      {/* Animation de bienvenue */}
-      <div className="w-full">
-        <SlideTop>
-          <div className="md:p-6 w-full text-center md:text-left">
-            <h1 className="text-black font-bold uppercase">
-              <span className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl">
-                Welcome
-              </span>
-              <br />
-              I'm
-              <span className="ml-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                Pascal Kien
-              </span>
-            </h1>
-          </div>
-        </SlideTop>
-      </div>
-
-      {/* Image de profil affichée entre le titre et la description seulement sur mobile */}
-      <SlideRight>
-        <div className="flex justify-center w-full md:hidden">
-          <img src={photo} className="rounded-full w-[250px] h-[250px] md:w-40 md:h-40 object-cover" />
-        </div>
-      </SlideRight>
-
-      <div className="flex flex-col md:flex-row w-full max-w-5xl overflow-visible">
-        <div className="w-full">
+    <div className="w-full max-w-6xl mx-auto px-4 py-24 md:py-0 text-left">
+      <div className="flex flex-col-reverse md:flex-row md:items-center gap-10 md:gap-16">
+        {/* Texte */}
+        <div className="md:flex-1">
           <SlideLeft>
-            {renderParagraphs([
-              "As a web developer passionate about creating websites and interactive applications, I have experience in both front-end and back-end development, along with a understanding of artificial intelligence solutions such as machine learning, deep learning, natural language processing, and computer vision.",
-              "I have managed various personal projects, ranging from simple static websites to more complex web applications. Additionally, I have worked on optimizing, maintaining, and enhancing existing codebases within enterprise systems.",
-              "I enjoy solving problems and creating solutions that have a positive impact on users."
-            ])}
-          </SlideLeft>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black">
+              Pascal Kien
+            </h1>
+            <p className="mt-2 text-xl sm:text-2xl font-medium text-gray-700">
+              Fullstack Web Developer
+            </p>
 
-          <SlideBottom>
-            <div className="flex items-center justify-center p-4 overflow-x-auto no-scrollbar">
-              {['tech_lang', 'tech_framework', 'tech_Database'].map((category, catIndex) => (
-                <div key={catIndex} className="flex flex-nowrap items-center bg-white m-2 justify-center space-x-2 w-full">
-                  {data[category].map((tech, index) => (
-                    <div key={index} className="tooltip-container relative">
-                      <img
-                        src={tech.img}
-                        alt={tech.title}
-                        className="rounded-full w-10 h-10 object-contain cursor-pointer"
-                        onMouseEnter={() => setActiveTooltip(`${category}-${index}`)}
-                        onMouseLeave={() => setActiveTooltip(null)}
-                      />
-                      {activeTooltip === `${category}-${index}` && (
-                        <span className="absolute bg-gray-900 text-white text-xs p-1 rounded-md shadow-lg">
-                          {tech.title}
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
+            <p className="mt-6 text-lg text-gray-700 max-w-xl">
+              4+ years building web and mobile applications, from apprenticeships to
+              freelance missions: SaaS platforms, back-offices and mobile apps with
+              React, Next.js, Go, Laravel and PHP. Master&apos;s degree in Development,
+              Big Data &amp; AI.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#contacts"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-black bg-black text-white font-semibold hover:bg-gray-500 hover:border-gray-500 transition-colors duration-300"
+              >
+                Contact me
+                <FiMail
+                  className="w-4 h-4 transition-transform duration-200 group-hover:-rotate-12"
+                  aria-hidden="true"
+                />
+              </a>
+              <Link
+                to="/projects"
+                className="px-6 py-3 rounded-lg border border-black text-black font-semibold hover:bg-gray-500 hover:border-gray-500 hover:text-white transition-colors duration-300"
+              >
+                View projects
+              </Link>
             </div>
-          </SlideBottom>
+          </SlideLeft>
         </div>
 
-        {/* Image de profil affichée à droite seulement sur les écrans plus larges */}
+        {/* Photo */}
         <SlideRight>
-          <div className="p-4 hidden md:block">
-            <img src={photo} className="w-full h-auto object-cover" />
+          <div className="flex justify-center md:justify-end">
+            <img
+              src={photo}
+              alt="Pascal Kien"
+              className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full object-cover shadow-lg"
+            />
           </div>
         </SlideRight>
       </div>
+
+      {/* Compétences : badges logo + nom, groupés par catégorie */}
+      <SlideBottom>
+        <div className="mt-14 grid gap-4 sm:grid-cols-3">
+          {skillGroups.map(({ label, key }) => (
+            <div key={key}>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                {label}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {data[key].map((tech) => (
+                  <span
+                    key={tech.title}
+                    className="inline-flex items-center gap-2 pl-1.5 pr-3 py-1 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-800"
+                  >
+                    <img src={tech.img} alt="" className="w-5 h-5 rounded-full object-contain" />
+                    {tech.title}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </SlideBottom>
     </div>
   );
 };

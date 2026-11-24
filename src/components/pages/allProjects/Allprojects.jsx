@@ -1,336 +1,146 @@
-import React, { useEffect, useState } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import React, { useEffect, useMemo, useState } from "react";
 import { data } from "../../../data/info";
+import Reveal from "../../animation/Reveal";
+import ProjectCard from "../../projects/ProjectCard";
+import { techColor } from "@/lib/techColor";
 
-import SlideInTop from "../../animation/SlideInTop";
-import SlideInLeft from "../../animation/SlideInLeft";
-import SlideInRight from "../../animation/SlideInRight";
+
+const projectTypes = ["All", ...data.type_project.map((type) => type.title)];
+
+// Liste des technos générée à partir des projets (toujours complète),
+// triée de la plus utilisée à la moins utilisée
+const techCounts = data.project
+  .flatMap((project) => project.tech)
+  .reduce((acc, tech) => ({ ...acc, [tech]: (acc[tech] ?? 0) + 1 }), {});
+const allTechs = Object.keys(techCounts).sort(
+  (a, b) => techCounts[b] - techCounts[a] || a.localeCompare(b)
+);
+const VISIBLE_TECHS = 12;
 
 const Allprojects = () => {
+  const [activeType, setActiveType] = useState("All");
   const [selectedTech, setSelectedTech] = useState([]);
-  const [activeTab, setActiveTab] = useState("all");
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [showFilterModal, setShowFilterModal] = useState(false);
-  const [isContentVisible, setIsContentVisible] = useState(false);
-  const [isTechVisible, setIsTechVisible] = useState({}); // Pour gérer la visibilité par catégorie
+  const [showAllTechs, setShowAllTechs] = useState(false);
+
+  // Les technos sélectionnées restent visibles même quand la liste est repliée
+  const visibleTechs = showAllTechs
+    ? allTechs
+    : allTechs.filter((tech, index) => index < VISIBLE_TECHS || selectedTech.includes(tech));
+  const hiddenCount = allTechs.length - visibleTechs.length;
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsContentVisible(true);
-    }, 500);
-    return () => clearTimeout(timer);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  useEffect(() => {
-    if (isContentVisible) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  }, [isContentVisible]);
+  const projects = useMemo(
+    () =>
+      data.project.filter(
+        (project) =>
+          (activeType === "All" || project.type.includes(activeType)) &&
+          selectedTech.every((tech) => project.tech.includes(tech))
+      ),
+    [activeType, selectedTech]
+  );
 
-  const techFilters = data.type_techo.reduce((acc, tech) => {
-    if (acc[tech.type]) {
-      acc[tech.type].push(tech);
-    } else {
-      acc[tech.type] = [tech];
-    }
-    return acc;
-  }, {});
+  const toggleTech = (tech) =>
+    setSelectedTech((prev) =>
+      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
+    );
 
-  const filterProjects = (type) => {
-    return data.project.filter((project) => {
-      const typeMatches = type === "all" || project.type.includes(type);
-      const techMatches =
-        selectedTech.length === 0 ||
-        selectedTech.every((tech) => project.tech.includes(tech));
-
-      return typeMatches && techMatches;
-    });
+  const clearFilters = () => {
+    setActiveType("All");
+    setSelectedTech([]);
   };
 
-  const tabs = [
-    { label: "All", value: "all" },
-    ...data.type_project.map((type) => ({
-      label: type.title,
-      value: type.title,
-    })),
-  ];
-
-  const handleTechChange = (tech) => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      setSelectedTech((prevSelected) =>
-        prevSelected.includes(tech)
-          ? prevSelected.filter((t) => t !== tech)
-          : [...prevSelected, tech]
-      );
-      setIsAnimating(false);
-    }, 200);
-  };
-
-  const handleTabChange = (value) => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      setActiveTab(value);
-      setIsAnimating(false);
-    }, 200);
-  };
-
-  const toggleFilterModal = () => {
-    setShowFilterModal(!showFilterModal);
-  };
-
-  // Fonction pour basculer l'affichage des sous-catégories par type de technologie
-  const toggleTechVisibility = (category) => {
-    setIsTechVisible((prevState) => ({
-      ...prevState,
-      [category]: !prevState[category],
-    }));
-  };
-
-  // Fonction pour réinitialiser les filtres
-  const clearAllFilters = () => {
-    setSelectedTech([]); // Réinitialiser toutes les technologies sélectionnées
-    setActiveTab("all"); // Réinitialiser la catégorie active à "all"
-  };
+  const hasFilters = activeType !== "All" || selectedTech.length > 0;
 
   return (
-    <div className="container mx-auto p-4 pb-8">
-      <SlideInTop>
-        <h1 id="projects" className="text-3xl font-bold mb-6 pb-4 pt-10 hidden sm:block">
-          Projects
-        </h1>
-      </SlideInTop>
+    <div className="container mx-auto px-4 pt-24 sm:pt-16 pb-12 text-left">
+      <Reveal>
+      <h1 id="projects" className="text-3xl font-bold text-center mb-8">
+        Projects
+      </h1>
 
-      {isContentVisible && (
-        <div className="pt-20 md:pt-0 overflow-hidden">
-          {/* Vue Web */}
-          <div className="hidden lg:block mb-6">
-            <SlideInTop>
-              <Tabs value={activeTab} onValueChange={handleTabChange}>
-                <TabsList className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 pb-4">
-                  {tabs.map((tab) => (
-                    <TabsTrigger key={tab.value} value={tab.value}>
-                      {tab.label}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-              </Tabs>
-            </SlideInTop>
-          </div>
+      {/* Catégories */}
+      <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2 mb-4 sm:justify-center">
+        {projectTypes.map((type) => (
+          <button
+            key={type}
+            onClick={() => setActiveType(type)}
+            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-300 ${
+              activeType === type
+                ? "bg-black text-white"
+                : "bg-gray-100 text-gray-600 hover:bg-gray-500 hover:text-white"
+            }`}
+          >
+            {type}
+          </button>
+        ))}
+      </div>
 
-          {/* Vue Mobile */}
-          <SlideInTop>
+      {/* Technologies */}
+      <div className="flex flex-wrap gap-2 sm:justify-center mb-4">
+        {visibleTechs.map((tech) => {
+          const isSelected = selectedTech.includes(tech);
+          return (
             <button
-              onClick={toggleFilterModal}
-              className="block lg:hidden mb-4 bg-black text-white px-4 py-2 rounded-lg w-full text-center"
+              key={tech}
+              onClick={() => toggleTech(tech)}
+              aria-pressed={isSelected}
+              style={isSelected ? techColor(tech, { selected: true }) : undefined}
+              className={`px-3 py-1 rounded-full text-xs font-semibold border transition-colors duration-300 ${
+                isSelected
+                  ? ""
+                  : "bg-white text-gray-600 border-gray-300 hover:bg-gray-500 hover:border-gray-500 hover:text-white"
+              }`}
             >
-              Filter
+              {tech}
             </button>
-          </SlideInTop>
+          );
+        })}
+        {(hiddenCount > 0 || showAllTechs) && (
+          <button
+            onClick={() => setShowAllTechs((prev) => !prev)}
+            className="px-3 py-1 text-xs font-semibold text-gray-800 underline hover:text-gray-500 transition-colors duration-300"
+          >
+            {showAllTechs ? "Show less" : `+${hiddenCount} more`}
+          </button>
+        )}
+      </div>
 
-          {showFilterModal && (
-            <div className="fixed inset-0 z-50 bg-gray-800 bg-opacity-75 flex justify-center items-center lg:hidden">
-              <div className="bg-white p-6 rounded-lg w-3/4 max-w-md relative">
-                <button
-                  onClick={toggleFilterModal}
-                  className="absolute top-2 right-2 text-gray-600 text-2xl font-bold"
-                >
-                  &times;
-                </button>
+      </Reveal>
 
-                <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
-                  Categories:
-                </label>
-                <div className="flex flex-col gap-2 pb-4">
-                  {tabs.map((tab) => (
-                    <label key={tab.value} className="inline-flex items-center">
-                      <input
-                        type="checkbox"
-                        value={tab.value}
-                        checked={activeTab === tab.value}
-                        onChange={() => {
-                          handleTabChange(tab.value);
-                          toggleFilterModal();
-                        }}
-                        className="form-checkbox h-5 w-5 text-indigo-600"
-                      />
-                      <span className="ml-2 text-gray-700">{tab.label}</span>
-                    </label>
-                  ))}
-                </div>
+      {/* Résultats */}
+      <div className="flex items-center justify-center gap-3 text-sm text-gray-500 mb-8 min-h-[1.5rem]">
+        <span>
+          {projects.length} project{projects.length > 1 ? "s" : ""}
+        </span>
+        {hasFilters && (
+          <button onClick={clearFilters} className="underline hover:text-gray-800 transition-colors duration-300">
+            Clear filters
+          </button>
+        )}
+      </div>
 
-                <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
-                  Technologies:
-                </label>
-                {/* Sous-catégories avec option de hide/show */}
-                {Object.keys(techFilters).map((category) => (
-                  <div key={category} className="mb-4">
-                    <div
-                      className="cursor-pointer text-lg font-semibold mb-2 text-gray-800 flex justify-between"
-                      onClick={() => toggleTechVisibility(category)}
-                    >
-                      <span>{category}</span>
-                      <span>
-                        {isTechVisible[category] ? "-" : "+"} {/* Icone toggle */}
-                      </span>
-                    </div>
-                    {isTechVisible[category] && (
-                      <div className="flex flex-col space-y-2">
-                        {techFilters[category]
-                          .sort((a, b) => a.title.localeCompare(b.title))
-                          .map((tech) => (
-                            <label
-                              key={tech.title}
-                              className="inline-flex items-center"
-                            >
-                              <input
-                                type="checkbox"
-                                value={tech.title}
-                                checked={selectedTech.includes(tech.title)}
-                                onChange={() => handleTechChange(tech.title)}
-                                className="form-checkbox h-5 w-5 text-indigo-600"
-                              />
-                              <span className="ml-2 text-gray-700">
-                                {tech.title}
-                              </span>
-                            </label>
-                          ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-
-                {/* Bouton Clear All */}
-                <button
-                  onClick={clearAllFilters}
-                  className="mt-6 bg-black text-white px-4 py-2 rounded-lg w-full text-center"
-                >
-                  Clear All
-                </button>
-              </div>
-            </div>
-          )}
-
-          <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-8 pb-6">
-            <SlideInLeft>
-              <div className="hidden lg:block w-full lg:w-64">
-                <aside className="mt-6">
-                  <label className="block text-lg font-semibold mb-4 text-gray-700 underline">
-                    Filter :
-                  </label>
-
-                  {/* Sidebar visible uniquement en version desktop */}
-                  {Object.keys(techFilters).map((category) => (
-                    <div key={category} className="mb-4">
-                      <h3 className="text-lg font-semibold mb-2">{category}</h3>
-                      <div className="flex flex-col space-y-2">
-                        {techFilters[category]
-                          .sort((a, b) => a.title.localeCompare(b.title))
-                          .map((tech) => (
-                            <label
-                              key={tech.title}
-                              className="inline-flex items-center"
-                            >
-                              <input
-                                type="checkbox"
-                                value={tech.title}
-                                checked={selectedTech.includes(tech.title)}
-                                onChange={() => handleTechChange(tech.title)}
-                                className="form-checkbox h-5 w-5 text-indigo-600"
-                              />
-                              <span className="ml-2 text-gray-700">
-                                {tech.title}
-                              </span>
-                            </label>
-                          ))}
-                      </div>
-                    </div>
-                  ))}
-                </aside>
-              </div>
-            </SlideInLeft>
-
-            <SlideInRight>
-              <Tabs value={activeTab} onValueChange={handleTabChange}>
-                {tabs.map((tab) => (
-                  <TabsContent key={tab.value} value={tab.value}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {filterProjects(tab.value).map((project) => (
-                        <a
-                          key={project.title}
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`block transition-all duration-500 ${
-                            isAnimating
-                              ? "transform scale-0 opacity-0"
-                              : "transform scale-100 opacity-100"
-                          }`}
-                        >
-                          <Card className="w-full group transition-transform transform hover:scale-105">
-                            <CardHeader>
-                              <img
-                                src={project.img}
-                                alt={project.title}
-                                className="w-full h-[200px] object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                              />
-                              <CardTitle>{project.title}</CardTitle>
-                              <CardDescription>
-                                {project.subtitle}
-                              </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                              <p className="text-gray-700">
-                                {project.description}
-                              </p>
-                              <div className="flex flex-wrap gap-2 mt-2">
-                                {project.type.map((t, index) => (
-                                  <span
-                                    key={index}
-                                    className={`inline-block px-3 py-1 text-sm font-semibold rounded-full text-white ${
-                                      data.type_project.find(
-                                        (tp) => tp.title === t
-                                      )?.color
-                                    }`}
-                                  >
-                                    {t}
-                                  </span>
-                                ))}
-                              </div>
-                              <div className="flex flex-wrap gap-2 mt-2">
-                                {project.tech.map((tech, index) => (
-                                  <span
-                                    key={index}
-                                    className="inline-block px-3 py-1 text-sm font-semibold bg-gray-200 rounded-full text-gray-700"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </a>
-                      ))}
-                    </div>
-                  </TabsContent>
-                ))}
-              </Tabs>
-            </SlideInRight>
-          </div>
+      {projects.length === 0 ? (
+        <p className="text-center text-gray-500 py-16">
+          No project matches these filters.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <Reveal
+              key={`${activeType}-${selectedTech.join()}-${project.title}-${project.link}`}
+              delay={(index % 3) * 100}
+              className="h-full"
+            >
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
         </div>
       )}
     </div>
   );
 };
 
-export default Allprojects; 
+export default Allprojects;

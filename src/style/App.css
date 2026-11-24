@@ -1,5 +1,9 @@
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #FAFAFA;
+  background-image: radial-gradient(#d4d4d8 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
 }
 
 h1, h2, h3 {

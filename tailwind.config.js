@@ -4,6 +4,9 @@ module.exports = {
 	content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
 	theme: {
 		extend: {
+			colors: {
+				page: "#FAFAFA",
+			},
 			spacing: {
 				'15': '15px',
 				'16': '16px',

@@ -20,7 +20,7 @@ function Experience() {
       <ol className="relative border-l-2 border-black ml-3">
         {experiences.map((exp, index) => (
           <li key={index} className="mb-8 ml-6 last:mb-0">
-            <span className="absolute -left-[9px] mt-5 w-4 h-4 bg-black rounded-full border-2 border-white" />
+            <span className="absolute -left-[9px] mt-5 w-4 h-4 bg-black rounded-full border-2 border-page" />
             <Reveal className="bg-white shadow-lg rounded-lg p-4 text-left">
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                 <h4 className="text-lg font-bold text-gray-900">{exp.title}</h4>
@@ -55,7 +55,7 @@ function Experience() {
       <ol className="relative border-l-2 border-black ml-3">
         {educations.map((edu, index) => (
           <li key={index} className="mb-6 ml-6 last:mb-0">
-            <span className="absolute -left-[9px] mt-5 w-4 h-4 bg-black rounded-full border-2 border-white" />
+            <span className="absolute -left-[9px] mt-5 w-4 h-4 bg-black rounded-full border-2 border-page" />
             <Reveal className="bg-white shadow-lg rounded-lg p-4 text-left">
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                 <h4 className="text-lg font-bold text-gray-900">{edu.title}</h4>

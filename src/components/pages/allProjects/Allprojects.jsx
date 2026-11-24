@@ -69,8 +69,8 @@ const Allprojects = () => {
             onClick={() => setActiveType(type)}
             className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-300 ${
               activeType === type
-                ? "bg-black text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-500 hover:text-white"
+                ? "bg-black border border-black text-white"
+                : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-500 hover:border-gray-500 hover:text-white"
             }`}
           >
             {type}

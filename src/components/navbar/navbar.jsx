@@ -66,8 +66,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 border-b transition-all duration-300 ${
         isScrolled && !menuOpen
-          ? "bg-white/80 backdrop-blur-md border-gray-200 shadow-sm"
-          : "bg-white border-transparent"
+          ? "bg-page/80 backdrop-blur-md border-gray-200 shadow-sm"
+          : "bg-transparent border-transparent"
       }`}
     >
       <div className="container mx-auto flex justify-end items-center p-2 md:p-4">
@@ -89,7 +89,7 @@ export default function Navbar() {
         {/* Hamburger button for mobile */}
         {!menuOpen && (
           <button
-            className="md:hidden focus:outline-none w-12 h-12 flex items-center justify-center rounded bg-white"
+            className="md:hidden focus:outline-none w-12 h-12 flex items-center justify-center rounded"
             onClick={toggleMenu}
           >
             <svg

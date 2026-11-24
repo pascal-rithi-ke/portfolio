@@ -89,7 +89,7 @@ export default function Navbar() {
         {/* Hamburger button for mobile */}
         {!menuOpen && (
           <button
-            className="md:hidden block focus:outline-none w-12 h-12 flex items-center justify-center rounded bg-white"
+            className="md:hidden focus:outline-none w-12 h-12 flex items-center justify-center rounded bg-white"
             onClick={toggleMenu}
           >
             <svg
